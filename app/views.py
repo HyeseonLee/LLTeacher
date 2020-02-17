@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy 
-# 근데 이거 사용법 까먹었어요...
+from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요...
 
 from .models import GeneralChemistry2
 
