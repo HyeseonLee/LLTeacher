@@ -9,7 +9,7 @@ def index(request):
     contentsGC = GeneralChemistry2.objects.all()
     countGC = 0
     sumGC = 0
-    for content in contents:    
+    for content in contentsGC:    
         sumGC += content.score
         countGC +=1
     avgGC = sumGC/countGC
@@ -39,7 +39,7 @@ def index(request):
     avgWP = sumWP/countWP
 
     return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP })
-    
+
 class GC2Read(ListView):
     model = GeneralChemistry2
     
