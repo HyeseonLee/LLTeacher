@@ -6,7 +6,8 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 from .models import GeneralChemistry2
 
 def index(request):
-    return render(request, 'index.html')
+    contents = GeneralChemistry2.score
+    return render(request, 'index.html', { 'sum' : contents })
     
 
 # Create your views here.
