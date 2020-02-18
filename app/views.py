@@ -5,6 +5,10 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 
 from .models import GeneralChemistry2
 
+def index(request):
+    return render(request, 'index.html')
+    
+
 # Create your views here.
 class GC2Read(ListView):
     model = GeneralChemistry2
