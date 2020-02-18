@@ -1,1 +1,19 @@
-일반화학2 강의평 창입니다.
+<!DOCTYPE html>
+<html lang="Ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일반화학2</title>
+</head>
+<body>
+    <h1>
+        일반화학2 강의평 창입니다.
+    </h1>
+
+    <div>
+        {% for i in gc2 %}
+            {{i.text}}
+        {% endfor %}
+    </div>
+</body>
+</html>
