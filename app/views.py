@@ -47,6 +47,7 @@ class GC2Read(ListView):
     def get(self, request, *arg, **kwargs):
         template_name = 'GeneralChemistry2.html'
         gc2 = GeneralChemistry2.objects.all()
+<<<<<<< HEAD
         return render(request, template_name, {'gc2':gc2})
 
 class LERead(ListView):
@@ -74,6 +75,9 @@ class WPRead(ListView):
         return render(request, template_name, {'WP':WP})
     
     
+=======
+        return render(request, template_name, {'gc2':gc2, })
+>>>>>>> so1
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
