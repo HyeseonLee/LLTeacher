@@ -6,17 +6,18 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
 def index(request):
-<<<<<<< HEAD
-    return render(request, 'index.html')
-=======
     contents = GeneralChemistry2.score
     return render(request, 'index.html', { 'sum' : contents })
     
->>>>>>> sea
 
 class GC2Read(ListView):
     model = GeneralChemistry2
-    template_name = 'GeneralChemistry2.html'
+    
+    def get(self, request, *arg, **kwargs):
+        template_name = 'GeneralChemistry2.html'
+        gc2 = GeneralChemistry2.objects.all()
+        return render(request, template_name, {'gc2':gc2})
+    
     
     
 class GC2Create(CreateView):
