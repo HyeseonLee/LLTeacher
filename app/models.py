@@ -17,6 +17,8 @@ class GeneralChemistry2(models.Model):
     seme = models.CharField(max_length=10, choices=SEME_FIELD_CHOICES)
     score = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)], default=[0])
     text = models.TextField(max_length=300)
+    class ReadonlyMeta:
+        readonly = ["lectureName"]
 
 
 class LawAndEconomics(models.Model):
