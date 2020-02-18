@@ -13,7 +13,7 @@ def index(request):
         sumGC += content.score
         countGC +=1
     avgGC = sumGC/countGC
-    latestGC = GeneralChemistry2.objects.order_by('pk').first()
+    latestGC = GeneralChemistry2.objects.order_by('-pk').first()
 
     contentsLE = LawAndEconomics.objects.all()
     countLE = 0
@@ -22,6 +22,7 @@ def index(request):
         sumLE += content.score
         countLE +=1
     avgLE = sumLE/countLE
+    latestLE = LawAndEconomics.objects.order_by('-pk').first()
 
     contentsPE = PhysicsExperiment.objects.all()
     countPE = 0
@@ -30,6 +31,7 @@ def index(request):
         sumPE += content.score
         countPE +=1
     avgPE = sumPE/countPE
+    latestPE = PhysicsExperiment.objects.order_by('-pk').first()
 
     contentsWP = WebProgramming.objects.all()
     countWP = 0
@@ -38,8 +40,9 @@ def index(request):
         sumWP += content.score
         countWP +=1
     avgWP = sumWP/countWP
+    latestWP = WebProgramming.objects.order_by('-pk').first()
 
-    return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC})
+    return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
 
 class GC2Read(ListView):
     model = GeneralChemistry2
@@ -47,7 +50,6 @@ class GC2Read(ListView):
     def get(self, request, *arg, **kwargs):
         template_name = 'GeneralChemistry2.html'
         gc2 = GeneralChemistry2.objects.all()
-<<<<<<< HEAD
         return render(request, template_name, {'gc2':gc2})
 
 class LERead(ListView):
@@ -75,9 +77,6 @@ class WPRead(ListView):
         return render(request, template_name, {'WP':WP})
     
     
-=======
-        return render(request, template_name, {'gc2':gc2, })
->>>>>>> so1
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
