@@ -45,36 +45,36 @@ def index(request):
     return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
 
 class GC2Read(ListView):
-    model = GeneralChemistry2
-    
     def get(self, request, *arg, **kwargs):
+        model = GeneralChemistry2
         template_name = 'GeneralChemistry2.html'
-        gc2 = GeneralChemistry2.objects.all()
-        return render(request, template_name, {'gc2':gc2})
+        latestGC = model.objects.order_by('-pk').first()
+        gc2 = model.objects.all()
+        return render(request, template_name, {'gc2':gc2, 'latestGC':latestGC})
         
 class LERead(ListView):
-    model = LawAndEconomics
-    
     def get(self, request, *arg, **kwargs):
+        model = LawAndEconomics
         template_name = 'LE.html'
-        LE = GeneralChemistry2.objects.all()
-        return render(request, template_name, {'LE':LE})
+        LE = model.objects.all()
+        latestLE = model.objects.order_by('-pk').first()
+        return render(request, template_name, {'LE':LE, 'latestLE':latestLE})
 
 class PERead(ListView):
-    model = PhysicsExperiment
-    
     def get(self, request, *arg, **kwargs):
+        model = PhysicsExperiment
         template_name = 'PE.html'
-        PE = PhysicsExperiment.objects.all()
-        return render(request, template_name, {'PE':PE})    
+        PE = model.objects.all()
+        latestPE = model.objects.order_by('-pk').first()
+        return render(request, template_name, {'PE':PE, 'latestPE':latestPE})    
 
 class WPRead(ListView):
-    model = WebProgramming
-    
     def get(self, request, *arg, **kwargs):
+        model = WebProgramming
         template_name = 'WP.html'
-        WP = WebProgramming.objects.all()
-        return render(request, template_name, {'WP':WP})
+        WP = model.objects.all()
+        latestWP = model.objects.order_by('-pk').first()
+        return render(request, template_name, {'WP':WP, 'latestWP':latestWP})
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
