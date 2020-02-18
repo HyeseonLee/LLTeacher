@@ -7,6 +7,19 @@
 <body>
     <h1>ERICA 강의평가 페이지</h1>
     <a href="{% url 'GC2'%}"> 일반화학 강의평가 보기</a>
-    <br><h3>평균 평점 {{sum}}   </h3>
+    <br>
+    <br><h3>평균 평점 {{avgGC}}   </h3>
+
+    <a href="{% url 'LE'%}"> 법과 경제 강의평가 보기</a>
+    <br><h3>평균 평점 {{avgLE}}   </h3>
+
+    <a href="{% url 'PE'%}"> 물리학실험 강의평가 보기</a>
+    <br><h3>평균 평점 {{avgPE}}   </h3>
+
+    <a href="{% url 'WP'%}"> 웹프로그래밍 강의평가 보기</a>
+    <br><h3>평균 평점 {{avgWP}}   </h3>
+
+
+
 </body>
 </html>
