@@ -6,11 +6,15 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
 def index(request):
-    contents = GeneralChemistry2.objects.all()
-    for content in contents:
-        sum = 0
-        sum += content.score
-    return render(request, 'index.html', { 'sum' : sum })
+    contentsGC = GeneralChemistry2.objects.all()
+    countGC = 0
+    sumGC = 0
+    for content in contents:    
+        sumGC += content.score
+        countGC +=1
+    avgGC = sumGC/count
+
+    return render(request, 'index.html', { 'sumGC' : sumGC })
     
 
 class GC2Read(ListView):
