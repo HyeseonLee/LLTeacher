@@ -9,3 +9,4 @@ urlpatterns = [
     path('GC2/', GC2Read.as_view(), name='GC2'),
     path('admin/', admin.site.urls, name="admin"),
 ]
+
