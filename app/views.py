@@ -12,6 +12,7 @@ class GC2Read(ListView):
     model = GeneralChemistry2
     template_name = 'GeneralChemistry2.html'
     
+    
 class GC2Create(CreateView):
     model = GeneralChemistry2
     fields = ['seme','score','text']
