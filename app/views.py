@@ -36,7 +36,7 @@ def index(request):
     contentsWP = WebProgramming.objects.all()
     countWP = 0
     sumWP = 0
-    for content in contentsLE:    
+    for content in contentsWP:    
         sumWP += content.score
         countWP +=1
     avgWP = sumWP/countWP
@@ -51,7 +51,7 @@ class GC2Read(ListView):
         template_name = 'GeneralChemistry2.html'
         gc2 = GeneralChemistry2.objects.all()
         return render(request, template_name, {'gc2':gc2})
-
+        
 class LERead(ListView):
     model = LawAndEconomics
     
@@ -75,8 +75,6 @@ class WPRead(ListView):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all()
         return render(request, template_name, {'WP':WP})
-    
-    
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
