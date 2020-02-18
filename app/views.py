@@ -23,9 +23,7 @@ class GC2Read(ListView):
     def get(self, request, *arg, **kwargs):
         template_name = 'GeneralChemistry2.html'
         gc2 = GeneralChemistry2.objects.all()
-        return render(request, template_name, {'gc2':gc2})
-    
-    
+        return render(request, template_name, {'gc2':gc2, })
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
