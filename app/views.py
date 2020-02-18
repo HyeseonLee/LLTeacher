@@ -13,6 +13,7 @@ def index(request):
         sumGC += content.score
         countGC +=1
     avgGC = sumGC/countGC
+    latestGC = GeneralChemistry2.objects.order_by('pk').first()
 
     contentsLE = LawAndEconomics.objects.all()
     countLE = 0
@@ -38,7 +39,7 @@ def index(request):
         countWP +=1
     avgWP = sumWP/countWP
 
-    return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP })
+    return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC})
 
 class GC2Read(ListView):
     model = GeneralChemistry2
