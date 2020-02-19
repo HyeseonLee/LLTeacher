@@ -46,7 +46,6 @@ def index(request):
     return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
 
 class GC2Read(ListView):
-<<<<<<< HEAD
     model = GeneralChemistry2
     
     def get(self, request):
@@ -84,39 +83,6 @@ class WPRead(ListView):
         return render(request, template_name, {'WP':WP})
 
         #(소문자모델)_list.html
-=======
-    def get(self, request, *arg, **kwargs):
-        model = GeneralChemistry2
-        template_name = 'GeneralChemistry2.html'
-        latestGC = model.objects.order_by('-pk').first()
-        gc2 = model.objects.all()
-        return render(request, template_name, {'gc2':gc2, 'latestGC':latestGC})
-        
-class LERead(ListView):
-    def get(self, request, *arg, **kwargs):
-        model = LawAndEconomics
-        template_name = 'LE.html'
-        LE = model.objects.all()
-        latestLE = model.objects.order_by('-pk').first()
-        return render(request, template_name, {'LE':LE, 'latestLE':latestLE})
-
-class PERead(ListView):
-    def get(self, request, *arg, **kwargs):
-        model = PhysicsExperiment
-        template_name = 'PE.html'
-        PE = model.objects.all()
-        latestPE = model.objects.order_by('-pk').first()
-        return render(request, template_name, {'PE':PE, 'latestPE':latestPE})    
-
-class WPRead(ListView):
-    def get(self, request, *arg, **kwargs):
-        model = WebProgramming
-        template_name = 'WP.html'
-        WP = model.objects.all()
-        latestWP = model.objects.order_by('-pk').first()
-        return render(request, template_name, {'WP':WP, 'latestWP':latestWP})
->>>>>>> bd4ee0830dc74baca9107100334126aad5c62b06
-    
 class GC2Create(CreateView):
     model = GeneralChemistry2
     template_name = 'GeneralChemistry2.html'
