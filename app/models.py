@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
+from django.utils import timezone
 
 class GeneralChemistry2(models.Model):
     objects = models.Manager()
@@ -17,6 +18,10 @@ class GeneralChemistry2(models.Model):
     seme = models.CharField(max_length=10, choices=SEME_FIELD_CHOICES)
     score = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)], default=[0])
     text = models.TextField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+    # 정렬기준이 필요한거 같아서 자료입력시간만 추가했어요
+    def __str__(self):
+        return str(self.time)
     
 
 
@@ -34,6 +39,10 @@ class LawAndEconomics(models.Model):
     seme = models.CharField(max_length=10, choices=SEME_FIELD_CHOICES)
     score = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)], default=[0])
     text = models.TextField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.time)
 
 
 class WebProgramming(models.Model):
@@ -50,6 +59,10 @@ class WebProgramming(models.Model):
     seme = models.CharField(max_length=10, choices=SEME_FIELD_CHOICES)
     score = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)], default=[0])
     text = models.TextField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.time)
 
 class PhysicsExperiment(models.Model):
     objects = models.Manager()
@@ -65,3 +78,7 @@ class PhysicsExperiment(models.Model):
     seme = models.CharField(max_length=10, choices=SEME_FIELD_CHOICES)
     score = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(5)], default=[0])
     text = models.TextField(max_length=300)
+    time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return str(self.time)

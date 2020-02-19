@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요...
+from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요...  // redirect 와 유사한거같아!
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
@@ -12,7 +12,8 @@ def index(request):
     for content in contentsGC:    
         sumGC += content.score
         countGC +=1
-    avgGC = sumGC/countGC
+    avgGC = round(sumGC/countGC, 2)
+    #평점은 소수 2째자리까지만
     latestGC = GeneralChemistry2.objects.order_by('-pk').first()
 
     contentsLE = LawAndEconomics.objects.all()
@@ -21,7 +22,7 @@ def index(request):
     for content in contentsLE:    
         sumLE += content.score
         countLE +=1
-    avgLE = sumLE/countLE
+    avgLE = round(sumLE/countLE, 2)
     latestLE = LawAndEconomics.objects.order_by('-pk').first()
 
     contentsPE = PhysicsExperiment.objects.all()
@@ -30,7 +31,7 @@ def index(request):
     for content in contentsPE:    
         sumPE += content.score
         countPE +=1
-    avgPE = sumPE/countPE
+    avgPE = round(sumPE/countPE, 2)
     latestPE = PhysicsExperiment.objects.order_by('-pk').first()
 
     contentsWP = WebProgramming.objects.all()
@@ -39,7 +40,7 @@ def index(request):
     for content in contentsWP:    
         sumWP += content.score
         countWP +=1
-    avgWP = sumWP/countWP
+    avgWP = round(sumWP/countWP, 2)
     latestWP = WebProgramming.objects.order_by('-pk').first()
 
     return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
@@ -47,48 +48,62 @@ def index(request):
 class GC2Read(ListView):
     model = GeneralChemistry2
     
-    def get(self, request, *arg, **kwargs):
-        template_name = 'GeneralChemistry2.html'
-        gc2 = GeneralChemistry2.objects.all()
-        return render(request, template_name, {'gc2':gc2})
+    def get(self, request):
+        template_name = 'GeneralChemistry2.html'   
+        # 'GeneralChemistry2.html' 라는 HTML파일로 작업할꺼야 근데 CreateView UpdateView DeleteView 를 
+        # 각각 html 안만들고 하나의 html 속 각각의 form으로 동작하고싶은데
+        GC2 = GeneralChemistry2.objects.all().order_by('-time')
+        # -time 기준으로 정렬 ==> 최신 후기를 상단에 출력해줌
+        return render(request, template_name, {'GC2':GC2})
 
 class LERead(ListView):
     model = LawAndEconomics
-    
-    def get(self, request, *arg, **kwargs):
+    # html 에 object_list 속에 객체가 담기는데 조작은 어떻게하지? for i in object_list
+    # context_object_name = '' 을 이용해 수정
+    # pk 를 이용하느건 object 로만
+    def get(self, request):
         template_name = 'LE.html'
-        LE = GeneralChemistry2.objects.all()
+        LE = GeneralChemistry2.objects.all().order_by('-time')
         return render(request, template_name, {'LE':LE})
 
 class PERead(ListView):
     model = PhysicsExperiment
     
-    def get(self, request, *arg, **kwargs):
+    def get(self, request):
         template_name = 'PE.html'
-        PE = PhysicsExperiment.objects.all()
+        PE = PhysicsExperiment.objects.all().order_by('-time')
         return render(request, template_name, {'PE':PE})    
 
 class WPRead(ListView):
     model = WebProgramming
     
-    def get(self, request, *arg, **kwargs):
+    def get(self, request):
         template_name = 'WP.html'
-        WP = WebProgramming.objects.all()
+        WP = WebProgramming.objects.all().order_by('-time')
         return render(request, template_name, {'WP':WP})
+
+        #(소문자모델)_list.html
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
+    template_name = 'GeneralChemistry2.html'
     fields = ['seme','score','text']
+    #fields 에 과목명을 추가하면 네 가지 CreateView 말고 하나로 통합할 수 있지않을까?
     success_url = reverse_lazy('GC2')
-    # GC2 는 URLS.PY 속 NAME인 것 같습니다요
-    # 성공하면 어디로 이동할까요~?
+
+    #(소문자모델)_form.html
+    #Post.objects.create(seme='', score=0, text='')
 
 class GC2Update(UpdateView):
     model = GeneralChemistry2
+    template_name = 'GeneralChemistry2.html'
     fields = ['seme','score','text']
-    template_name_suffix = 'GC2_update_form'
+    success_url = reverse_lazy('GC2')
+    #(소문자모델)_form.html
 
 class GC2Delete(DeleteView):
     model = GeneralChemistry2
+    template_name = 'GeneralChemistry2.html'
     success_url = reverse_lazy('GC2')
+    #(소문자모델)_confirm_delete.html
     
