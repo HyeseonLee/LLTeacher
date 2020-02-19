@@ -51,8 +51,6 @@ class GC2Read(ListView):
         template_name = 'GeneralChemistry2.html'
         gc2 = GeneralChemistry2.objects.all()
         return render(request, template_name, {'gc2':gc2})
-<<<<<<< HEAD
-=======
 
 class LERead(ListView):
     model = LawAndEconomics
@@ -77,9 +75,6 @@ class WPRead(ListView):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all()
         return render(request, template_name, {'WP':WP})
-    
-    
->>>>>>> 59dffcd4d0530f30d2a48c7381f75d5843c9a6fc
     
 class GC2Create(CreateView):
     model = GeneralChemistry2
