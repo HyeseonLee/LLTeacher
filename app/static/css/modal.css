@@ -5,7 +5,6 @@ button{
     padding: 5px 20px;
     border-radius: 5px;
     cursor: pointer;
-    z-index: -1;
 }
 iframe{
     text-align: left;

@@ -11,38 +11,41 @@ def index(request):
     contentsGC = GeneralChemistry2.objects.all()
     countGC = 0
     sumGC = 0
+    avgGC = "등록해줘~"
     for content in contentsGC:    
         sumGC += content.score
         countGC +=1
-    avgGC = round(sumGC/countGC, 2)
-    #평점은 소수 2째자리까지만
+        avgGC = round(sumGC/countGC, 2)
     latestGC = GeneralChemistry2.objects.order_by('-pk').first()
 
     contentsLE = LawAndEconomics.objects.all()
     countLE = 0
     sumLE = 0
+    avgLE = "등록해줘~"
     for content in contentsLE:    
         sumLE += content.score
         countLE +=1
-    avgLE = round(sumLE/countLE, 2)
+        avgLE = round(sumLE/countLE, 2)
     latestLE = LawAndEconomics.objects.order_by('-pk').first()
 
     contentsPE = PhysicsExperiment.objects.all()
     countPE = 0
     sumPE = 0
+    avgPE = "등록해줘~"
     for content in contentsPE:    
         sumPE += content.score
         countPE +=1
-    avgPE = round(sumPE/countPE, 2)
+        avgPE = round(sumPE/countPE, 2)
     latestPE = PhysicsExperiment.objects.order_by('-pk').first()
 
     contentsWP = WebProgramming.objects.all()
     countWP = 0
     sumWP = 0
+    avgWP = "등록해줘~"
     for content in contentsWP:    
         sumWP += content.score
         countWP +=1
-    avgWP = round(sumWP/countWP, 2)
+        avgWP = round(sumWP/countWP, 2)
     latestWP = WebProgramming.objects.order_by('-pk').first()
 
     return render(request, 'index.html', { 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
@@ -93,7 +96,7 @@ class GC2Create(CreateView):
 
 class GC2Update(UpdateView):
     model = GeneralChemistry2
-    template_name = 'GeneralChemistry2.html'
+    template_name = 'generalchemistry2_update_form.html'
     fields = ['seme','score','text']
     success_url = reverse_lazy('GC2')
     
@@ -101,7 +104,7 @@ class GC2Update(UpdateView):
 
 class GC2Delete(DeleteView):
     model = GeneralChemistry2
-    template_name = 'GeneralChemistry2.html'
+    template_name = 'gc2_confirm_delete.html'
     success_url = reverse_lazy('GC2')
     #(소문자모델)_confirm_delete.html
     

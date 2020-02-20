@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
 </head>
 <body>
-<div style="width: 99.9%; height: 99.9%; position: absolute;">
+<div style="width: 29.9%; height: 99.9%; position: absolute; z-index: 1;">
     <button id="open">새 강의평 쓰기</button>
     <div class="modal hidden">
         <div class="modal_overlay">
@@ -18,7 +18,7 @@
                     {% csrf_token %}
                     <h1> 새 강의평 쓰기</h1>
                     {{form.as_p}}
-                    <input type="submit" value="등록하기" onclick="window.location.reload()">
+                    <input type="submit" value="등록하기">
 
                 </form>
                 
