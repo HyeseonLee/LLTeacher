@@ -83,12 +83,7 @@ class WPRead(ListView):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all().order_by('-time')
         return render(request, template_name, {'WP':WP})
-<<<<<<< HEAD
-
-        #(소문자모델)_list.html
-=======
     
->>>>>>> seulong
 class GC2Create(CreateView):
     model = GeneralChemistry2
     template_name = 'generalchemistry2_form.html'
@@ -109,7 +104,6 @@ class GC2Delete(DeleteView):
     template_name = 'GeneralChemistry2.html'
     success_url = reverse_lazy('GC2')
     #(소문자모델)_confirm_delete.html
-<<<<<<< HEAD
     
 
     # 아래는 로그인 관련코드.
@@ -149,5 +143,3 @@ def logout(request):
 
 def loginhome(request):
     return render(request,'login.html')
-=======
->>>>>>> 802122e9ab4481050b1e6a9517a939584a14591e

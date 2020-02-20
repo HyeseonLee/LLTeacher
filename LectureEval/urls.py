@@ -15,7 +15,6 @@ urlpatterns = [
     path('login/',app.views.login, name ='login'),
     path('signup/',app.views.signup , name = 'signup'),
     path('loginhome/',app.views.loginhome, name='loginhome'),
-    path('delete',app.views.delete, name ='delete'),
     path('GC2/create', GC2Create.as_view(), name="GC2_CREATE"),
 
     #path('GC2/create', GC2Create.as_view(), name="GC2_CREATE")
