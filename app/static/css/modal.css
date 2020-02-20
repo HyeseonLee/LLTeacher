@@ -8,7 +8,7 @@ button{
     z-index: -1;
 }
 iframe{
-    text-align: ;
+    text-align: left;
 }
 .modal {
     position: fixed;
