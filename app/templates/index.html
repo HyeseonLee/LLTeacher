@@ -19,6 +19,7 @@
 
     {% if user.is_authenticated %}
     {% csrf_token %}
+    <h3>{{user.username}}님 안녕하세요!</h3>
     <div class = "header">
         <h1>header</h1>
         <h1>ERICA 강의평가 페이지</h1>

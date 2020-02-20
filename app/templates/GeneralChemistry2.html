@@ -32,8 +32,10 @@
                 강의 후기 : {{i.text}} <BR>
                 추천 별점 : {{i.score}}
             </div>
+            {% if i.author == user %}
             <button>수정하기</button>
             <button>삭제하기</button>
+            {% endif %}
         {% endfor %}
     </div>
 
