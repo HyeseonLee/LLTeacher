@@ -81,23 +81,25 @@ class WPRead(ListView):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all().order_by('-time')
         return render(request, template_name, {'WP':WP})
+<<<<<<< HEAD
 
         #(소문자모델)_list.html
+=======
+    
+>>>>>>> seulong
 class GC2Create(CreateView):
     model = GeneralChemistry2
-    template_name = 'GeneralChemistry2.html'
+    template_name = 'generalchemistry2_form.html'
     fields = ['seme','score','text']
-    #fields 에 과목명을 추가하면 네 가지 CreateView 말고 하나로 통합할 수 있지않을까?
-    success_url = reverse_lazy('GC2')
-
-    #(소문자모델)_form.html
-    #Post.objects.create(seme='', score=0, text='')
+    success_url = reverse_lazy('GC2_CREATE')
+    
 
 class GC2Update(UpdateView):
     model = GeneralChemistry2
     template_name = 'GeneralChemistry2.html'
     fields = ['seme','score','text']
     success_url = reverse_lazy('GC2')
+    
     #(소문자모델)_form.html
 
 class GC2Delete(DeleteView):
@@ -105,4 +107,3 @@ class GC2Delete(DeleteView):
     template_name = 'GeneralChemistry2.html'
     success_url = reverse_lazy('GC2')
     #(소문자모델)_confirm_delete.html
-    
