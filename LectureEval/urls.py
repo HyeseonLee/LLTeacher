@@ -11,6 +11,10 @@ urlpatterns = [
     path('LE/', LERead.as_view(), name='LE'),
     path('PE/', PERead.as_view(), name='PE'),
     path('WP/', WPRead.as_view(), name='WP'),
+    path('login/',app.views.login, name ='login'),
+    path('signup/',app.views.signup , name = 'signup'),
+    path('loginhome/',app.views.loginhome, name='loginhome'),
+    
 
     #path('GC2/create', GC2Create.as_view(), name="GC2_CREATE")
     #path('GC2/update/<int:pk>', GC2Update.as_view(), name="GC2_UPDATE")

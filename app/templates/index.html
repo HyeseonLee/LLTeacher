@@ -14,7 +14,11 @@
     .box3 {background: skyblue;width: 300px;}
     .box4 {background: rebeccapurple;width: 300px;}
 </style>
+
 <body>
+
+    {% if user.is_authenticated %}
+    {% csrf_token %}
     <div class = "header">
         <h1>header</h1>
         <h1>ERICA 강의평가 페이지</h1>
@@ -55,6 +59,52 @@
     <div class = "footer">
         <h1>footer</h1>
     </div>
+
+    {% else %}
+    <h2>로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</h2>
+    <a href="{% url 'loginhome'%}">로그인 하러 가기</a>
+    <div class = "header">
+        <h1>header</h1>
+        <h1>ERICA 강의평가 페이지</h1>
+    </div>
+    <div calss = "container">
+        <div class = "box1">
+        <h3>일반화학</h3>
+        <h4>평균 평점 *.**   </h4>
+        <h4>최근 강의평가:************</h4>
+        
+        
+        </div>
+
+        <div class = "box2">
+        <h3>법과 경제</h3>
+        <h4>평균 평점 *.**   </h4>
+        <h4>최근 강의평가:************</h4>
+        
+        
+        </div>
+
+        <div class = "box3">
+        <h3>물리학실험</h3>
+        <h4>평균 평점 *.**   </h4>
+        <h4>최근 강의평가:************</h4>
+        
+        
+        </div>
+
+        <div class = "box4">
+        <h3>웹프로그래밍</h3>
+        <h4>평균 평점 *.**   </h4>
+        <h4>최근 강의평가:************</h4>
+        
+        
+        </div>
+    </div>  
+    <div class = "footer">
+        <h1>footer</h1>
+    </div>
+
+    {% endif %}
 
 
 </body>

@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib import auth
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요...  // redirect 와 유사한거같아!
@@ -106,3 +108,41 @@ class GC2Delete(DeleteView):
     success_url = reverse_lazy('GC2')
     #(소문자모델)_confirm_delete.html
     
+
+    #로그인 구현할겸 일단 관련코드 싹 긁어왔습니다.
+
+def signup(request):
+    if request.method == 'POST':
+        if request.POST['password1'] == request.POST['password2']:
+            user = User.objects.create_user(username= request.POST['username'], password = request.POST['password1'])
+            auth.login(request, user)
+            return redirect('main')
+    return render(request, 'login.html')
+
+def login(request):
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(request, username=username , password = password)
+            
+            if user is not None:
+                auth.login(request,user)
+                return redirect('main')    
+            else:
+                errormasg = "잘못입력하셨습니다"
+                return render(request, 'login.html',{'errormasg':errormasg})
+        else:
+            return redirect('login.html')
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'login.html')
+
+
+# def delete(request, account_id):
+#         account = Account.objects.get(id=account_id)
+#         account.delete()
+#         return redirect('index')
+
+def loginhome(request):
+    return render(request,'login.html')

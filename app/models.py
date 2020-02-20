@@ -3,6 +3,9 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from django.utils import timezone
+from django.contrib.auth.models import User  
+from django.db.models.signals import post_save  
+from django.dispatch import receiver
 
 class GeneralChemistry2(models.Model):
     objects = models.Manager()
@@ -82,3 +85,18 @@ class PhysicsExperiment(models.Model):
 
     def __str__(self):
         return str(self.time)
+
+## 회원가입 필요 모델 추가해요
+
+class Profile(models.Model):  
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    birth_date = models.DateField(null=True, blank=True)
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):  
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):  
+    instance.profile.save()
