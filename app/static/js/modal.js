@@ -3,20 +3,27 @@ window.onload = function(){
     const modal = document.querySelector(".modal");
     const overlay = modal.querySelector(".modal_overlay");
     const closeBtn = modal.querySelector(".closeBtn");
-    //const submit = modal.querySelector(".submit");
+    //const submitButton = document.querySelector(".submitButton");
+    //const creatModal = document.getElementById(".creatModal");
+
     const openModal = () => {
             modal.classList.remove("hidden");
+            
         }
-    const closeModal = () => {
+    const closeModal = () => {   
             modal.classList.add("hidden");
+            window.location.reload();
         }
-    /*const submitModal = () {
-        
+    /*
+    const reload = () => {
+        window.location.reload(true)
     }
-    submit.addEventListener("click", submitModal);
-    
     */
-    overlay.addEventListener("click", closeModal);
+ 
+    //overlay.addEventListener("click", closeModal);
     closeBtn.addEventListener("click", closeModal);
-    openButton.addEventListener("click", openModal);  
+    openButton.addEventListener("click", openModal);
+    //submitButton.addEventListener("click", reload);
+    
+   
 }
