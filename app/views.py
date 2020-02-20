@@ -108,10 +108,6 @@ class GC2Delete(DeleteView):
     success_url = reverse_lazy('GC2')
     #(소문자모델)_confirm_delete.html
     
-def delete(request):
-    destroy = get_object_or_404(GC2)
-    destroy.delete()
-    return redirect('GC2')
 
     # 아래는 로그인 관련코드.
 
