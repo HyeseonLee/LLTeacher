@@ -48,8 +48,8 @@
                         <li><a><img src="{%static 'image/profile.png'%}" width="30" height="30"></a>
                             <ul><br>
                                 {% else %}
-                                <li class="li"><a href="{% url 'signup' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
-                                <li class="li"><a href="{% url 'login' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
+                                <li class="li"><a href="{% url 'signupPage' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
+                                <li class="li"><a href="{% url 'loginPage' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
                                 <li class="li"><a href="{% url 'mypage' %}"><img src="{%static 'image/profile.png'%}"
                                             width="30" height="30"></a></li>
                                 {% endif %}
@@ -65,3 +65,4 @@
         </div>
     </div>
 </body>
+</html>

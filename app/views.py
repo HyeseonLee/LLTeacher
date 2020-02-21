@@ -56,7 +56,7 @@ def index(request):
 class GC2Read(ListView):
     model = GeneralChemistry2
     def get(self, request):
-        template_name = 'generalchemistry2.html'   
+        template_name = 'GC2.html'   
         # 'GeneralChemistry2.html' 라는 HTML파일로 작업할꺼야 근데 CreateView UpdateView DeleteView 를 
         # 각각 html 안만들고 하나의 html 속 각각의 form으로 동작하고싶은데
         GC2 = GeneralChemistry2.objects.all().order_by('-time')
@@ -171,7 +171,7 @@ def signup(request):
             user = User.objects.create_user(username= request.POST['username'], password = request.POST['password1'])
             auth.login(request, user)
             return redirect('main')
-    return render(request, 'login.html')
+    return render(request, 'signup.html')
 
 def login(request):
         if request.method == 'POST':
@@ -192,8 +192,11 @@ def logout(request):
     auth.logout(request)
     return render(request, 'index.html')
 
-def loginhome(request):
+def loginPage(request):
     return render(request,'login.html')
+
+def signupPage(request):
+    return render(request, 'signup.html')
 
 def mypage(request):
     render_args = {}

@@ -9,7 +9,8 @@ urlpatterns = [
     path('login/',app.views.login, name ='login'),
     path('logout/',app.views.logout, name='logout'),
     path('signup/',app.views.signup , name = 'signup'),
-    path('loginhome/',app.views.loginhome, name='loginhome'),
+    path('loginPage/', app.views.loginPage, name='loginPage'),
+    path('signupPage/', app.views.signupPage, name="signupPage"),
     path('mypage',app.views.mypage, name='mypage'),
 
     path('GC2/', GC2Read.as_view(), name='GC2'),
