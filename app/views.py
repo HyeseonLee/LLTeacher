@@ -150,6 +150,8 @@ def loginhome(request):
     return render(request,'login.html')
 
 def mypage(request):
+    render_args = {}
     for model in modelList:
-        model.objects.filter(author = User)
-    return render(request, 'mypage.html')
+        post = model.objects.filter(author = request.user)
+        render_args['posts'] = post
+    return render(request, 'mypage.html', render_args)

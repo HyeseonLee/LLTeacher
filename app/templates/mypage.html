@@ -1,1 +1,5 @@
 <h1>내가 쓴 강의평</h1>
+{% for i in render_args %}
+{{ i.text }}
+{{ i.time }}
+{% endfor %}
