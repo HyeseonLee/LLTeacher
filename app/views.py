@@ -56,7 +56,7 @@ def index(request):
 class GC2Read(ListView):
     model = GeneralChemistry2
     def get(self, request):
-        template_name = 'GeneralChemistry2.html'   
+        template_name = 'generalchemistry2.html'   
         # 'GeneralChemistry2.html' 라는 HTML파일로 작업할꺼야 근데 CreateView UpdateView DeleteView 를 
         # 각각 html 안만들고 하나의 html 속 각각의 form으로 동작하고싶은데
         GC2 = GeneralChemistry2.objects.all().order_by('-time')
@@ -70,7 +70,7 @@ class LERead(ListView):
     # pk 를 이용하느건 object 로만
     def get(self, request):
         template_name = 'LE.html'
-        LE = GeneralChemistry2.objects.all().order_by('-time')
+        LE = LawAndEconomics.objects.all().order_by('-time')
         return render(request, template_name, {'LE':LE})
 
 class PERead(ListView):

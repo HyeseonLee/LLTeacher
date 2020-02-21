@@ -1,26 +1,9 @@
-{% load static %}
+{% extends "gc2_base.html" %}
 
-<!DOCTYPE html>
-<html lang="Ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일반화학2</title>
-    <link rel="stylesheet" href="{% static 'css/default.css' %}">
-    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
-    
-
-
-</head>
-<body style="text-align: center;">
-    {% if user.is_authenticated %}
-    {% csrf_token %}
-    <div id="creatModal" style="width: 39%; height: 99%; position: fixed; text-align: left;">
-        <iframe src="{% url 'GC2_CREATE' %}" class="creatModal" frameBorder="0" scrolling="no" style="width: 39%; height: 99%; position: fixed;"></iframe>
-    </div>
+    {% block content %}
     <h1> 일반화학2 강의평 창입니다. </h1>
-    <h3>{{professorNameGC}} 교수님</h3>
-
+    <h3>{{latestGC.professorName}} 교수님</h3>
+    <a href="{% url 'GC2_CREATE' %}"> 새 강의평 등록하기 </a>
     <div>
         {% for i in GC2 %}
             <H3> {{i.seme}} 수강자 입니다.</H3>
@@ -38,5 +21,4 @@
     <h2>잘못된 접근입니다.</h2>
     {% endif %}
     <a href = "{% url 'main' %}"> 메인으로 가기 </a>
-</body>
-</html>
+    {% endblock content %}
