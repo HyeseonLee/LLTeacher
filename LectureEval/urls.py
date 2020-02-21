@@ -32,7 +32,5 @@ urlpatterns = [
     path('WP/create', WPCreate.as_view(), name="WP_CREATE"),
     path('WP/update/<int:pk>', WPUpdate.as_view(), name="WP_UPDATE"),
     path('WP/delete/<int:pk>', WPDelete.as_view(), name="WP_DELETE"),
-
-    path('test/', app.views.test, name="test"),
 ]
 

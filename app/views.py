@@ -204,6 +204,3 @@ def mypage(request):
         post = model.objects.filter(author = request.user)
         render_args['posts'] = post
     return render(request, 'mypage.html', render_args)
-
-def test(request):
-    return render(request, 'test.html')
