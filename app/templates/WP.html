@@ -1,7 +1,7 @@
 {% extends "base_list.html" %}
 {% load static %}
 {% block title %}
-물리학실험
+    웹프로그래밍
 {% endblock title%}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/list.css' %}">
@@ -11,19 +11,19 @@
     {% if user.is_authenticated %}
         <div class="list_container">
             <div class="list_contents">
-                <h1> 법과경제학 강의평가 창입니다. </h1>
+                <h1> 웹프로그래밍 강의평가 창입니다. </h1>
                 <h3>{{professorName}} 교수님</h3>
-                <a href="{% url 'PE_CREATE' %}"> 새 강의평 등록하기 </a>
+                <a href="{% url 'WP_CREATE' %}"> 새 강의평 등록하기 </a>
                 <div>
-                    {% for i in PE %}
+                    {% for i in WP %}
                         <H3> {{i.seme}} 수강자 입니다.</H3>
                         <div class="list"> 
                             강의 후기 : {{i.text}} <BR>
                             추천 별점 : {{i.score}}
                         </div>
                         {% if i.author == user %}
-                        <a href = "{% url 'PE_UPDATE' i.id %}">수정하기</a>
-                        <a href = "{% url 'PE_DELETE' i.id %}">삭제하기</a>
+                        <a href = "{% url 'WP_UPDATE' i.id %}">수정하기</a>
+                        <a href = "{% url 'WP_DELETE' i.id %}">삭제하기</a>
                         {% endif %}
                     {% endfor %}
                 </div><br>

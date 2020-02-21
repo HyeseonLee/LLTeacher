@@ -1,13 +1,22 @@
-{% extends "base.html" %}
+{% extends "base_list.html" %}
 {% load static %}
 
-{% block content %}
+{% block title %}
+강의평가 메인
+{% endblock %}
 
-
+<<<<<<< HEAD
 <!-- <div class="content"> -->
+=======
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock css %}
+>>>>>>> bec322aaec6f3f9266c2737653357e41e324af06
 
+{% block content %}
 {% if user.is_authenticated %}
 {% csrf_token %}
+<<<<<<< HEAD
 <div class="content">
     <h3>{{user.username}}님 안녕하세요!</h3>
     <div class="section">
@@ -52,12 +61,34 @@
                         </div> -->
     </div>
 </div>
+=======
+<h3>{{user.username}}님 안녕하세요!</h3>
+<div class="section">
+    <a class="articles" href="{% url 'GC2' %}">
+        <h3>일반화학2 : {{professorNameGC}}</h3>
+        <p class="score">평균평점 {{avgGC}}</p>
+        <p>"{{latestGC.text|truncatechars_html:20}}"</p>
+    </a>
 
-<br>
-<br>
+    <a class="articles" href="{% url 'LE' %}">
+        <h3>법과경제학 : {{professorNameGC}}</h3>
+        <p class="score">평균평점 {{avgLE}}</p>
+        <p>"{{latestLE.text|truncatechars_html:20}}"</p>
+    </a>
 
+    <a class="articles" href="{% url 'PE' %}">
+        <h3>물리학실험 : {{professorNameGC}}</h3>
+        <p class="score">평균평점 {{avgPE}}</p>
+        <p>"{{latestPE.text|truncatechars_html:20}}"</p>
+    </a>
 
-
+    <a class="articles" href="{% url 'WP' %}">
+        <h3>웹프로그래밍 : {{professorNameGC}}</h3>
+        <p class="score">평균평점 {{avgWP}}</p>
+        <p>"{{latestWP.text|truncatechars_html:20}}"</p>
+    </a>
+</div> 
+>>>>>>> bec322aaec6f3f9266c2737653357e41e324af06
 
 {% else %}
 <h2>로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</h2>
@@ -98,7 +129,6 @@
                     
                         </div>
                     </div> -->
-
 
 {% endif %}
 

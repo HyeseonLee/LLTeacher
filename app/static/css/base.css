@@ -133,4 +133,6 @@ hr{
     float: left;
 }
 
-
+a{
+    text-decoration: none;
+}

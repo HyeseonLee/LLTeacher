@@ -1,11 +1,18 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<<<<<<< HEAD:app/templates/base.html
     <!-- <title>{% block title %}{% endblock %}</title> -->
+=======
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
+    {% block css %}{% endblock css %}
+    <!-- 필요한 css 경로는 상속받은 html에서 하는게 좋을까?-->
+    
+>>>>>>> bec322aaec6f3f9266c2737653357e41e324af06:app/templates/base_list.html
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
@@ -48,15 +55,19 @@
                         <li><a><img src="{%static 'image/profile.png'%}" width="30" height="30"></a>
                             <ul><br>
                                 {% else %}
-                                <li class="li"><a href="{% url 'signup' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
-                                <li class="li"><a href="{% url 'login' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
+                                <li class="li"><a href="{% url 'signuphome' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
+                                <li class="li"><a href="{% url 'loginhome' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
                                 <li class="li"><a href="{% url 'mypage' %}"><img src="{%static 'image/profile.png'%}"
                                             width="30" height="30"></a></li>
                                 {% endif %}
                             </ul>
                 </div>
             </div>
+<<<<<<< HEAD:app/templates/base.html
             <!-- <div class="content"> -->
+=======
+            <div class="content">
+>>>>>>> bec322aaec6f3f9266c2737653357e41e324af06:app/templates/base_list.html
                 {% block content %}
                 {% endblock %}
             <!-- </div> -->
