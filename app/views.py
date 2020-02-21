@@ -88,30 +88,82 @@ class WPRead(ListView):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all().order_by('-time')
         return render(request, template_name, {'WP':WP})
-    
+ 
+#CREATEVIEW
+
 class GC2Create(CreateView):
     model = GeneralChemistry2
     template_name = 'generalchemistry2_form.html'
-    fields = ['seme','score','text','professorName']
+    fields = ['seme','score','text']
     success_url = reverse_lazy('GC2_CREATE')
+
+class LECreate(CreateView):
+    model = LawAndEconomics
+    template_name = 'le_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('LE_CREATE')
+
+class PECreate(CreateView):
+    model = PhysicsExperiment
+    template_name = 'pe_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('PE_CREATE')
+
+class WPCreate(CreateView):
+    model = WebProgramming
+    template_name = 'wp_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('WP_CREATE')
     
+#UPDATEVIEW
 
 class GC2Update(UpdateView):
     model = GeneralChemistry2
     template_name = 'generalchemistry2_update_form.html'
     fields = ['seme','score','text']
     success_url = reverse_lazy('GC2')
-    
-    #(소문자모델)_form.html
+
+class LEUpdate(UpdateView):
+    model = LawAndEconomics
+    template_name = 'le_update_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('LE')
+
+class PEUpdate(UpdateView):
+    model = PhysicsExperiment
+    template_name = 'pe_update_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('PE')
+
+class WPUpdate(UpdateView):
+    model = WebProgramming
+    template_name = 'wp_update_form.html'
+    fields = ['seme','score','text']
+    success_url = reverse_lazy('WP')
+ 
+#DELETEVIEW    
 
 class GC2Delete(DeleteView):
     model = GeneralChemistry2
     template_name = 'gc2_confirm_delete.html'
     success_url = reverse_lazy('GC2')
-    #(소문자모델)_confirm_delete.html
-    
 
-    # 아래는 로그인 관련코드.
+class LEDelete(DeleteView):
+    model = GeneralChemistry2
+    template_name = 'le_confirm_delete.html'
+    success_url = reverse_lazy('LE')
+
+class PEDelete(DeleteView):
+    model = GeneralChemistry2
+    template_name = 'pe_confirm_delete.html'
+    success_url = reverse_lazy('PE')
+
+class WPDelete(DeleteView):
+    model = GeneralChemistry2
+    template_name = 'wp_confirm_delete.html'
+    success_url = reverse_lazy('WP')
+   
+# 로그인 관련코드.
 
 def signup(request):
     if request.method == 'POST':
@@ -139,12 +191,6 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return render(request, 'index.html')
-
-
-# def delete(request, account_id):
-#         account = Account.objects.get(id=account_id)
-#         account.delete()
-#         return redirect('index')
 
 def loginhome(request):
     return render(request,'login.html')
