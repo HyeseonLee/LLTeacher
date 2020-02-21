@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹프로그래밍</title>
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'app/static/css/navs.css' %}">
+
+    <style>
+        .nav {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            list-style-type: none;
+            size: 25px;
+            text-align: center;
+        }
+        .nav_item{
+            padding: 15px;
+            cursor: pointer;
+        }
+        .nav_item a {
+            text-align: center;
+            text-decoration: none;
+            color: darkblue;
+        }
+        .nav_item a:hover{
+            color: rgb(158, 40, 25);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav">
+            <li class = "nav_item"><a href ="#"> 메인 </a></li>
+            <li class = "nav_item"><a href ="#"> 새 강의평 등록</a></li>
+            <li class = "nav_item"><a href ="#"> 수정 </a></li>
+            <li class = "nav_item"><a href ="#"> 삭제 </a></li>
+        </ul>
+    </nav>
+
+
+    {% block content %}
+    
+    {% endblock content %}
+</body>
+</html>
