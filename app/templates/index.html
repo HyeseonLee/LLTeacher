@@ -1,9 +1,10 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <script src="/static/js/default.js" type = "text/javascript"></script>
-    <!-- index.css 연결 -->
+
     <h1>ERICA 강의평가 페이지</h1>
 
 </head>
@@ -16,9 +17,11 @@
     .box2 {background: pink;width: 300px;}
     .box3 {background: skyblue;width: 300px;}
     .box4 {background: rebeccapurple;width: 300px;}
-</style>
+</style> -->
 
-<body>
+    {% block content %}
+
+
 
     {% if user.is_authenticated %}
     {% csrf_token %}
@@ -106,6 +109,4 @@
     {% endif %}
     
 
-</body>
-
-</html>
+    {% endblock %}

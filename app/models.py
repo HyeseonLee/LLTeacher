@@ -25,8 +25,6 @@ class GeneralChemistry2(models.Model):
     # 정렬기준이 필요한거 같아서 자료입력시간만 추가했어요
     def __str__(self):
         return str(self.time)
-    class ReadonlyMeta:
-        readonly = ["professorName"]
     
 
 
