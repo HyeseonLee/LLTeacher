@@ -71,32 +71,34 @@
     <div calss = "container">
         <div class = "box1">
         <h3>일반화학</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
+        <h4>평균 평점 {{avgGC}}   </h4>
+        <h4>"{{latestGC.text|truncatechars_html:20}}"</h4>
+        <a href="{% url 'GC2'%}">강의평가 전체 보기</a>
         
         
         </div>
 
         <div class = "box2">
         <h3>법과 경제</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
+        <h4>평균 평점 {{avgLE}}   </h4>
+        <h4>"{{latestLE.text|truncatechars_html:20}}"</h4>
+        <a href="{% url 'GC2'%}">강의평가 전체 보기</a>
         
         
         </div>
 
         <div class = "box3">
         <h3>물리학실험</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
+        <h4>평균 평점 {{avgPE}}   </h4>
+        <h4>"{{latestPE.text|truncatechars_html:20}}"</h4>
         
         
         </div>
 
         <div class = "box4">
         <h3>웹프로그래밍</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
+        <h4>평균 평점 {{avgWP}}   </h4>
+        <h4>"{{latestWP.text|truncatechars_html:20}}"</h4>
         
         
         </div>

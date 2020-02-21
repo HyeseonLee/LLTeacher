@@ -52,7 +52,6 @@ def index(request):
 
 class GC2Read(ListView):
     model = GeneralChemistry2
-    
     def get(self, request):
         template_name = 'GeneralChemistry2.html'   
         # 'GeneralChemistry2.html' 라는 HTML파일로 작업할꺼야 근데 CreateView UpdateView DeleteView 를 

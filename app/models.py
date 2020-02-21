@@ -11,7 +11,7 @@ class GeneralChemistry2(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
     lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50)
+    professorName = models.CharField(max_length=50, default="최슬옹")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -25,6 +25,8 @@ class GeneralChemistry2(models.Model):
     # 정렬기준이 필요한거 같아서 자료입력시간만 추가했어요
     def __str__(self):
         return str(self.time)
+    class ReadonlyMeta:
+        readonly = ["professorName"]
     
 
 
