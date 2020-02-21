@@ -1,8 +1,15 @@
 {% extends "base_list.html" %}
 {% load static %}
 
-{% block content %}
+{% block title %}
+강의평가 메인
+{% endblock %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock css %}
+
+{% block content %}
 {% if user.is_authenticated %}
 {% csrf_token %}
 <h3>{{user.username}}님 안녕하세요!</h3>

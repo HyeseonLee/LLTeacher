@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    {% block css %}{% endblock css %}
 </head>
     
     <style>
@@ -20,7 +21,7 @@
             <a href = "{% url 'main' %}"> 메인으로 가기 </a>
         </div>
     </div>
-    <script src="{% static 'js/create.js' %}" type = "text/javascript"></script>
+    <!--<script src="{% static 'js/create.js' %}" type = "text/javascript"></script>-->
     {% block shortJava %}{% endblock shortJava %}
 </body>
 </html>
