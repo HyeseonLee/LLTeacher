@@ -7,12 +7,8 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
-<<<<<<< HEAD
 modelList = [GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming]
 professorNameGC = "최슬옹"
-=======
-professornameGC = "최슬옹"
->>>>>>> 8d5e33064f85b91916dff9a9f7fb92cb20abef0f
 
 def index(request):
     contentsGC = GeneralChemistry2.objects.all()
@@ -65,7 +61,7 @@ class GC2Read(ListView):
         # 각각 html 안만들고 하나의 html 속 각각의 form으로 동작하고싶은데
         GC2 = GeneralChemistry2.objects.all().order_by('-time')
         # -time 기준으로 정렬 ==> 최신 후기를 상단에 출력해줌
-        return render(request, template_name, {'GC2':GC2 , "professornameGC" : professornameGC})
+        return render(request, template_name, {'GC2':GC2 , "professorNameGC" : professorNameGC})
 
 class LERead(ListView):
     model = LawAndEconomics
@@ -96,7 +92,7 @@ class WPRead(ListView):
 class GC2Create(CreateView):
     model = GeneralChemistry2
     template_name = 'generalchemistry2_form.html'
-    fields = ['seme','score','text']
+    fields = ['seme','score','text','professorName']
     success_url = reverse_lazy('GC2_CREATE')
     
 
@@ -154,4 +150,6 @@ def loginhome(request):
     return render(request,'login.html')
 
 def mypage(request):
+    for model in modelList:
+        model.objects.filter(author = User)
     return render(request, 'mypage.html')

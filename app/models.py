@@ -11,7 +11,7 @@ class GeneralChemistry2(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
     lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50, default="최슬옹")
+    professorName = models.CharField(max_length=50, default="최슬옹", null=True)
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
