@@ -20,6 +20,7 @@ urlpatterns = [
     path('loginhome/',app.views.loginhome, name='loginhome'),
     path('GC2/create', GC2Create.as_view(), name="GC2_CREATE"),
     path('GC2/update/<int:pk>', GC2Update.as_view(), name="GC2_UPDATE"),
-    path('GC2/delete/<int:pk>', GC2Delete.as_view(), name="GC2_DELETE")
+    path('GC2/delete/<int:pk>', GC2Delete.as_view(), name="GC2_DELETE"),
+    path('mypage',app.views.mypage, name='mypage'),
 ]
 

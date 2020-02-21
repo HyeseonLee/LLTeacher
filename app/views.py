@@ -7,7 +7,8 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
-professornameGC = "최슬옹"
+modelList = [GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming]
+professorNameGC = "최슬옹"
 
 def index(request):
     contentsGC = GeneralChemistry2.objects.all()
@@ -50,7 +51,7 @@ def index(request):
         avgWP = round(sumWP/countWP, 2)
     latestWP = WebProgramming.objects.order_by('-pk').first()
 
-    return render(request, 'index.html', { 'professornameGC':professornameGC, 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
+    return render(request, 'index.html', { 'professorNameGC':professorNameGC, 'avgGC' : avgGC , 'avgLE' : avgLE, 'avgPE':avgPE, 'avgWP':avgWP , 'latestGC':latestGC, 'latestLE':latestLE, 'latestPE':latestPE, 'latestWP':latestWP})
 
 class GC2Read(ListView):
     model = GeneralChemistry2
@@ -147,3 +148,6 @@ def logout(request):
 
 def loginhome(request):
     return render(request,'login.html')
+
+def mypage(request):
+    return render(request, 'mypage.html')
