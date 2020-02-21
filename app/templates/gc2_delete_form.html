@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        <h1> 강의평을 정말 삭제할까요?</h1><br><br>
-        <input type="submit" value="삭제하기">
-
-    </form>
-</body>
-</html>
+{% extends "base_delete.html" %}
+{% load static %}
+{% block title %}
+    일반화학2 강의평가 삭제하기
+{% endblock title %}
+{% block name %}
+    일반화학2
+{% endblock name %}

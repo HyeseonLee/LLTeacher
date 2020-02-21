@@ -93,33 +93,33 @@ class WPRead(ListView):
 
 class GC2Create(CreateView):
     model = GeneralChemistry2
-    template_name = 'generalchemistry2_form.html'
+    template_name = 'gc2_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('GC2_CREATE')
+    success_url = reverse_lazy('GC2')
 
 class LECreate(CreateView):
     model = LawAndEconomics
-    template_name = 'le_form.html'
+    template_name = 'le_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('LE_CREATE')
+    success_url = reverse_lazy('LE')
 
 class PECreate(CreateView):
     model = PhysicsExperiment
-    template_name = 'pe_form.html'
+    template_name = 'pe_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('PE_CREATE')
+    success_url = reverse_lazy('PE')
 
 class WPCreate(CreateView):
     model = WebProgramming
-    template_name = 'wp_form.html'
+    template_name = 'wp_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('WP_CREATE')
+    success_url = reverse_lazy('WP')
     
 #UPDATEVIEW
 
 class GC2Update(UpdateView):
     model = GeneralChemistry2
-    template_name = 'generalchemistry2_update_form.html'
+    template_name = 'gc2_update_form.html'
     fields = ['seme','score','text']
     success_url = reverse_lazy('GC2')
 
@@ -145,22 +145,22 @@ class WPUpdate(UpdateView):
 
 class GC2Delete(DeleteView):
     model = GeneralChemistry2
-    template_name = 'gc2_confirm_delete.html'
+    template_name = 'gc2_delete_form.html'
     success_url = reverse_lazy('GC2')
 
 class LEDelete(DeleteView):
     model = GeneralChemistry2
-    template_name = 'le_confirm_delete.html'
+    template_name = 'le_delete_form.html'
     success_url = reverse_lazy('LE')
 
 class PEDelete(DeleteView):
     model = GeneralChemistry2
-    template_name = 'pe_confirm_delete.html'
+    template_name = 'pe_delete_form.html'
     success_url = reverse_lazy('PE')
 
 class WPDelete(DeleteView):
     model = GeneralChemistry2
-    template_name = 'wp_confirm_delete.html'
+    template_name = 'wp_delete_form.html'
     success_url = reverse_lazy('WP')
    
 # 로그인 관련코드.
@@ -204,3 +204,6 @@ def mypage(request):
         post = model.objects.filter(author = request.user)
         render_args['posts'] = post
     return render(request, 'mypage.html', render_args)
+
+def test(request):
+    return render(request, 'test.html')
