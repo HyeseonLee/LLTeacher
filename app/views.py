@@ -7,12 +7,8 @@ from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요..
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
-<<<<<<< HEAD
 modelList = [GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming]
 professorNameGC = "최슬옹"
-=======
-professornameGC = "최슬옹"
->>>>>>> 8d5e33064f85b91916dff9a9f7fb92cb20abef0f
 
 def index(request):
     contentsGC = GeneralChemistry2.objects.all()
