@@ -30,12 +30,7 @@ body{
     width: 100%;
     height: 100%;
 }
-.content {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    height: calc(100% - 110px);
-}
+
 /* 끝 */
 
 /* 상단 네브바 */
@@ -127,98 +122,11 @@ input:focus{
 
 }
 
-/* 서브바 추가 */
-#box-right li ul {
-    text-align: left;
-    background: #3e76f0;
-    display: none;
-    height:auto;
-    padding: 0;
-    margin:0px;
-    border:0px;
-    position:absolute;
-    width:150px;
-    z-index:200;
-
-}
-#box-right li:hover ul {
-    border-radius: 35px;
-    display: block;  /* 마우스 커서 올리면 서브메뉴 보이게 하기 */
-    /* text-align: center; */
-    margin-left: auto;
-    margin-right: auto;
-    }
-#box-right li ul li{
-    text-align: left;
-    display:inline-block;
-    line-height: 35px;
-    height: auto;
-    padding: 0px;
-    height: 35px;
-    /* border-bottom: 2px solid #2ec3af ; */
-    /* position: relative; */
-    margin-left: 22px;
-    font-size: 23px;
-}
-/* 추가 끝 */
 
 
 
 
 
-
-/*왼쪽 nav 부분 css*/
-.left_part{
-    border-radius: 0 80px 0 0 / 0 80px 0 0; 
-    background-color: #325AD3;
-    width: 380px;
-    height: calc(100%-110px);
-    padding: 0 16px;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-}
-
-.about_us h1 {
-    color: white;
-}
-.column{
-    position: relative;
-    float: left;
-    width:100%;
-    padding-right:16px;
-    text-align: center;
-}
-
-
-.left_nav{
-    padding-right: 40px;
-}
-
-
-.left_nav_item{
-    list-style-type: none;
-    position: relative;
-    display: block;
-    margin-bottom: 25px;
-    font-size: 14px;
-    line-height: 25px;
-    text-align: center;
-}
-
-.left_nav_item a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-
-.left_nav_item a img {
-    width: 30px;
-    height: 30px;
-}
-/* 끝 */
 
 
 hr{

@@ -1,14 +1,3 @@
-body{
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    margin: 0;
+.content{
+    background-color: blue;
 }
-div{
-    float: left;
-    text-align: center;
-}
-.box1 {background: red;width: 300px;}
-.box2 {background: pink;width: 300px;}
-.box3 {background: skyblue;width: 300px;}
-.box4 {background: rebeccapurple;width: 300px;}

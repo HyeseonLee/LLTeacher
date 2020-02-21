@@ -5,10 +5,10 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <!-- <title>{% block title %}{% endblock %}</title> -->
 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 </head>
 
 <body>
@@ -44,7 +44,7 @@
                             <input type="hidden" />
                             <!--숨겨진 폼 작성-->
                         </form>
-                        
+
                         <li><a><img src="{%static 'image/profile.png'%}" width="30" height="30"></a>
                             <ul><br>
                                 {% else %}
@@ -56,12 +56,10 @@
                             </ul>
                 </div>
             </div>
-            <div class="content">
-
-
+            <!-- <div class="content"> -->
                 {% block content %}
                 {% endblock %}
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </body>
