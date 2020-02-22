@@ -13,9 +13,10 @@
 
 {% if user.is_authenticated %}
 {% csrf_token %}
-<h3>{{user.username}}님 안녕하세요!</h3>
+<p class="intro">{{user.username}}님 안녕하세요!</p>
+
 <div class="section">
-    
+
     <!-- 가로 아이템들 -->
     <div class="main-item 1">
         <a class="articles" href="{% url 'GC2' %}">
