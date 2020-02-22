@@ -15,29 +15,42 @@
 {% csrf_token %}
 <h3>{{user.username}}님 안녕하세요!</h3>
 <div class="section">
-    <a class="articles" href="{% url 'GC2' %}">
-        <h3>일반화학2 : {{professorNameGC}}</h3>
-        <p class="score">평균평점 {{avgGC}}</p>
-        <p>"{{latestGC.text|truncatechars_html:20}}"</p>
-    </a>
+    
+    <!-- 가로 아이템들 -->
+    <div class="main-item 1">
+        <a class="articles" href="{% url 'GC2' %}">
+            <h3>일반화학2 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgGC}}</p>
+            <p>"{{latestGC.text|truncatechars_html:20}}"</p>
+        </a>
+    </div>
 
-    <a class="articles" href="{% url 'LE' %}">
-        <h3>법과경제학 : {{professorNameGC}}</h3>
-        <p class="score">평균평점 {{avgLE}}</p>
-        <p>"{{latestLE.text|truncatechars_html:20}}"</p>
-    </a>
+    <div class="main-item 2">
+        <a class="articles" href="{% url 'LE' %}">
+            <h3>법과경제학 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgLE}}</p>
+            <p>"{{latestLE.text|truncatechars_html:20}}"</p>
+        </a>
 
-    <a class="articles" href="{% url 'PE' %}">
-        <h3>물리학실험 : {{professorNameGC}}</h3>
-        <p class="score">평균평점 {{avgPE}}</p>
-        <p>"{{latestPE.text|truncatechars_html:20}}"</p>
-    </a>
+    </div>
 
-    <a class="articles" href="{% url 'WP' %}">
-        <h3>웹프로그래밍 : {{professorNameGC}}</h3>
-        <p class="score">평균평점 {{avgWP}}</p>
-        <p>"{{latestWP.text|truncatechars_html:20}}"</p>
-    </a>
+    <div class="main-item 3">
+        <a class="articles" href="{% url 'PE' %}">
+            <h3>물리학실험 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgPE}}</p>
+            <p>"{{latestPE.text|truncatechars_html:20}}"</p>
+        </a>
+    </div>
+    <div class="main-item 4">
+        <a class="articles" href="{% url 'WP' %}">
+            <h3>웹프로그래밍 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgWP}}</p>
+            <p>"{{latestWP.text|truncatechars_html:20}}"</p>
+        </a>
+    </div>
+
+
+
 </div>
 
 {% else %}

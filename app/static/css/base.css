@@ -6,36 +6,40 @@ top_nav: 화면 상단에 위치하는 nav바
 content: nav바 밑에 위치할 본문 내용(flex, 모든아이템이 세로중앙에 위치하게, 높이는 100%)
 */
 
-
+* {
+    margin: 0;
+    padding: 0;
+}
 
 /* 전체 구조 */
 body{
     background: white;
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
+
 .outer{
     position:absolute;
     top:50%;
     left:50%;
     background: white;
     transform:translate(-50%, -50%);
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    /* display: flex; */
-    /* align-items: center; */
-    /* height:100%;
-    width: 100%; */
-    border-radius: 100px;
     width: 100%;
     height: 100%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
 }
 
 /* 끝 */
 
 /* 상단 네브바 */
 .top_nav{
-    border-radius: 100px 100px 0px 0px / 100px 100px 20px 0px;
+    /* border-radius: 100px 100px 0px 0px / 100px 100px 20px 0px; */
     width: 100%; /* 0731 PM 19:10 기준 가로 넓이임*/
     height: 110px;
     display: flex;
@@ -87,7 +91,6 @@ input:focus{
     cursor: pointer;
     padding-left: 30px;
 }
-
   #box-right {
     flex: 1;
     margin: 0 auto;
@@ -105,8 +108,14 @@ input:focus{
       text-align: center;
       outline : lpx dotted blue;
       margin-right: 30px;
-      font-size: 25px;
+      font-size: 30px;
   }
+  .profile_img{
+        width: 35px;
+        height: 35px;
+  
+  }
+
 /* 끝 */
 
 /*네브바 추가 */

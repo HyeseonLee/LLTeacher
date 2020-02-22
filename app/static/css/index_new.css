@@ -2,15 +2,19 @@ body{
     height: 100%;
     width: 100%;
     text-align: center;
-    margin: 0;
-    size: 100px;
+
 }
-div{
-    float: left;
-    text-align: center;
+
+.section {
+    margin: 30px 150px;
+    border-radius: 25px;
+    background: pink;
 }
-.section {background: pink;width: 300px;}
-/* .box2 {background: pink;width: 300px;}
-.box3 {background: skyblue;width: 300px;}
-.box4 {background: rebeccapurple;width: 300px;}
- */
+
+.main-item{
+    background-color: bisque;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 100px;
+    
+}
