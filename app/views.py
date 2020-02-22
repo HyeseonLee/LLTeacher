@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy # 근데 이거 사용법 까먹었어요...  // redirect 와 유사한거같아!
+from django.urls import reverse_lazy
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
