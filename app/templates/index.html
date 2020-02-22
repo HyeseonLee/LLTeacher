@@ -1,112 +1,102 @@
+{% extends "base_list.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <script src="/static/js/default.js" type = "text/javascript"></script>
-</head>
-<style>
-    div{
-        float: left;
-        text-align: center;
-    }
-    .box1 {background: red;width: 300px;}
-    .box2 {background: pink;width: 300px;}
-    .box3 {background: skyblue;width: 300px;}
-    .box4 {background: rebeccapurple;width: 300px;}
-</style>
 
-<body>
+{% block title %}
+한양대학교 ERICA
+{% endblock title%}
 
-    {% if user.is_authenticated %}
-    {% csrf_token %}
-    <h3>{{user.username}}님 안녕하세요!</h3>
-    <div class = "header">
-        <h1>header</h1>
-        <h1>ERICA 강의평가 페이지</h1>
-    </div>
-    <div calss = "container">
-        <div class = "box1">
-        <h3>일반화학</h3>
-        <h4>평균 평점 {{avgGC}}   </h4>
-        <h4>"{{latestGC.text|truncatechars_html:20}}"</h4>
-        <a href="{% url 'GC2'%}">강의평가 전체 보기</a>
-        
-        </div>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index_new.css' %}">
+{% endblock css %}
 
-        <div class = "box2">
-        <h3>법과 경제</h3>
-        <h4>평균 평점 {{avgLE}}   </h4>
-        <h4>"{{latestLE.text|truncatechars_html:20}}"</h4>
-        <a href="{% url 'LE'%}">강의평가 전체 보기</a>
-        
-        </div>
+{% block content %}
 
-        <div class = "box3">
-        <h3>물리학실험</h3>
-        <h4>평균 평점 {{avgPE}}   </h4>
-        <h4>"{{latestPE.text|truncatechars_html:20}}"</h4>
-        <a href="{% url 'PE'%}">강의평가 전체 보기</a>
-        
-        </div>
+{% if user.is_authenticated %}
+{% csrf_token %}
+<p class="intro">{{user.username}}님 안녕하세요!</p>
 
-        <div class = "box4">
-        <h3>웹프로그래밍</h3>
-        <h4>평균 평점 {{avgWP}}   </h4>
-        <h4>"{{latestWP.text|truncatechars_html:20}}"</h4>
-        <a href="{% url 'WP'%}">강의평가 전체 보기</a>
-        
-        </div>
-    </div>  
-    <div class = "footer">
-        <h1>footer</h1>
+<div class="section">
+
+    <!-- 가로 아이템들 -->
+    <div class="main-item 1">
+        <a class="articles" href="{% url 'GC2' %}">
+            <p class="title">일반화학2 : {{professorNameGC}}</p>
+            <p class="score">평균평점 {{avgGC}}</p>
+            <p class="text">"{{latestGC.text|truncatechars_html:20}}"</p>
+        </a>
     </div>
 
-    {% else %}
-    <h2>로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</h2>
-    <a href="{% url 'loginhome'%}">로그인 하러 가기</a>
-    <div class = "header">
-        <h1>header</h1>
-        <h1>ERICA 강의평가 페이지</h1>
-    </div>
-    <div calss = "container">
-        <div class = "box1">
-        <h3>일반화학</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
-        
-        
-        </div>
+    <div class="main-item 2">
+        <a class="articles" href="{% url 'LE' %}">
+            <h3>법과경제학 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgLE}}</p>
+            <p>"{{latestLE.text|truncatechars_html:20}}"</p>
+        </a>
 
-        <div class = "box2">
-        <h3>법과 경제</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
-        
-        
-        </div>
-
-        <div class = "box3">
-        <h3>물리학실험</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
-        
-        
-        </div>
-
-        <div class = "box4">
-        <h3>웹프로그래밍</h3>
-        <h4>평균 평점 *.**   </h4>
-        <h4>최근 강의평가:************</h4>
-        
-        
-        </div>
-    </div>  
-    <div class = "footer">
-        <h1>footer</h1>
     </div>
 
-    {% endif %}
+    <div class="main-item 3">
+        <a class="articles" href="{% url 'PE' %}">
+            <h3>물리학실험 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgPE}}</p>
+            <p>"{{latestPE.text|truncatechars_html:20}}"</p>
+        </a>
+    </div>
+    <div class="main-item 4">
+        <a class="articles" href="{% url 'WP' %}">
+            <h3>웹프로그래밍 : {{professorNameGC}}</h3>
+            <p class="score">평균평점 {{avgWP}}</p>
+            <p>"{{latestWP.text|truncatechars_html:20}}"</p>
+        </a>
+    </div>
 
 
-</body>
-</html>
+
+</div>
+
+{% else %}
+<h2>로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</h2>
+<a href="{% url 'loginhome'%}">로그인 하러 가기</a>
+
+<!-- <div calss="container">
+                        <div class="box1">
+                            <h3>일반화학</h3>
+                            <h4>평균 평점 {{avgGC}} </h4>
+                            <h4>"{{latestGC.text|truncatechars_html:20}}"</h4>
+                            <a href="{% url 'loginhome'%}">로그인</a>하고 강의평 전체 보기
+                    
+                    
+                        </div>
+                    
+                        <div class="box2">
+                            <h3>법과 경제</h3>
+                            <h4>평균 평점 {{avgLE}} </h4>
+                            <h4>"{{latestLE.text|truncatechars_html:20}}"</h4>
+                            <a href="{% url 'loginhome'%}">로그인</a>하고 강의평 전체 보기
+                    
+                    
+                        </div>
+                    
+                        <div class="box3">
+                            <h3>물리학실험</h3>
+                            <h4>평균 평점 {{avgPE}} </h4>
+                            <a href="{% url 'loginhome'%}">로그인</a>하고 강의평 전체 보기
+                    
+                    
+                        </div>
+                    
+                        <div class="box4">
+                            <h3>웹프로그래밍</h3>
+                            <h4>평균 평점 {{avgWP}} </h4>
+                            <h4>"{{latestWP.text|truncatechars_html:20}}"</h4>
+                            <a href="{% url 'loginhome'%}">로그인</a>하고 강의평 전체 보기
+                    
+                        </div>
+                    </div> -->
+
+{% endif %}
+
+
+<!-- </div> -->
+
+{% endblock %}

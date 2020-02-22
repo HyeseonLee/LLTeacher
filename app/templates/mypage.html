@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <h1>내가 쓴 강의평</h1>
+    {% for i in render_args %}
+        <h3>강의 후기: {{ i.text }}</h3>
+        <h3>작성 시간: {{ i.time }}</h3>
+        <h3>추천 별점: {{ i.score }}</h3>
+    {% endfor %}
+{% else %}
+<h2>잘못된 접근입니다.</h2>
+{% endif %}
+<a href = "{% url 'main' %}"> 메인으로 가기 </a>
+</body>
+</html>
