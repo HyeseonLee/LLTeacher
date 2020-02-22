@@ -11,7 +11,7 @@ class GeneralChemistry2(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
     lectureName = models.CharField(max_length=200, default="일반화학2")
-    professorName = models.CharField(max_length=50, default="세아")
+    professorName = models.CharField(max_length=50, default="민선준")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -52,7 +52,7 @@ class WebProgramming(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
     lectureName = models.CharField(max_length=200, default="웹프로그래밍")
-    professorName = models.CharField(max_length=50, default="혜선이")
+    professorName = models.CharField(max_length=50, default="최기환")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -70,8 +70,8 @@ class WebProgramming(models.Model):
 class PhysicsExperiment(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
-    lectureName = models.CharField(max_length=200, default="물리학실험")
-    professorName = models.CharField(max_length=50, default="태원이")
+    lectureName = models.CharField(max_length=200, default="일반물리학실험")
+    professorName = models.CharField(max_length=50, default="오혜근")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
