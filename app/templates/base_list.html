@@ -6,7 +6,7 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
-    <link rel="stylesheet" href="../static/css/font.css">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
         
     {% block css %}{% endblock css %}
     <!-- 필요한 css 경로는 상속받은 html에서 하는게 좋을까?-->

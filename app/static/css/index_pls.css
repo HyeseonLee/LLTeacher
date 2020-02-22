@@ -30,18 +30,23 @@ a:link { color: black; }
 a:visited { color: black; }
 
 .title{
-    font-family: NanumSquareRoundEB;
-    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: NanumSquareEB;
+    font-size: 25px;
 }
 .score{
+    margin-bottom: 10px;
     font-family: NanumBarunpenB;
     font-size: 18px;
+}
+.seme{
+    margin-bottom: 4px;
+    font-family: NanumBarunpenB;
+    font-size: 14px;
+    color: gray;
 }
 .text {
     font-family: NanumBarunpenB;
     font-size: 18px;
 }
 
-.title .score .text {
-    margin-bottom: 5px;
-}
