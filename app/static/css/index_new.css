@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-.content{
-    background-color: blue;
-}
-=======
 body{
     height: 100%;
     width: 100%;
@@ -14,9 +9,8 @@ div{
     float: left;
     text-align: center;
 }
-.box1 {background: red;width: 300px;}
-.box2 {background: pink;width: 300px;}
+.section {background: red;width: 300px;}
+/* .box2 {background: pink;width: 300px;}
 .box3 {background: skyblue;width: 300px;}
 .box4 {background: rebeccapurple;width: 300px;}
-
->>>>>>> bec322aaec6f3f9266c2737653357e41e324af06
+ */

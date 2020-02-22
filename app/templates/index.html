@@ -2,66 +2,17 @@
 {% load static %}
 
 {% block title %}
-강의평가 메인
-{% endblock %}
+한양대학교 ERICA
+{% endblock title%}
 
-<<<<<<< HEAD
-<!-- <div class="content"> -->
-=======
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/index_new.css' %}">
 {% endblock css %}
->>>>>>> bec322aaec6f3f9266c2737653357e41e324af06
 
 {% block content %}
+
 {% if user.is_authenticated %}
 {% csrf_token %}
-<<<<<<< HEAD
-<div class="content">
-    <h3>{{user.username}}님 안녕하세요!</h3>
-    <div class="section">
-        <h2>최근 강의평</h2>
-        <a class="articles" href="{% url 'GC2' %}">
-            <h3>일반화학 : {{professorNameGC}}</h3>
-            <p class="score">평균평점 {{avgGC}}</p>
-            <p>"{{latestGC.text|truncatechars_html:20}}"</p>
-        </a>
-
-        <!-- <div class="box1">
-                            <h3>일반화학</h3>
-                            <h4> {{professorNameGC}}교수님</h4>
-                            <h4>평균 평점 {{avgGC}} </h4>
-                            <h4>"{{latestGC.text|truncatechars_html:20}}"</h4>
-                            <a href="{% url 'GC2'%}">강의평가 전체 보기</a>
-                    
-                        </div>
-                    
-                        <div class="box2">
-                            <h3>법과 경제</h3>
-                            <h4>평균 평점 {{avgLE}} </h4>
-                            <h4>"{{latestLE.text|truncatechars_html:20}}"</h4>
-                            <a href="{% url 'LE'%}">강의평가 전체 보기</a>
-                    
-                        </div>
-                    
-                        <div class="box3">
-                            <h3>물리학실험</h3>
-                            <h4>평균 평점 {{avgPE}} </h4>
-                            <h4>"{{latestPE.text|truncatechars_html:20}}"</h4>
-                            <a href="{% url 'PE'%}">강의평가 전체 보기</a>
-                    
-                        </div>
-                    
-                        <div class="box4">
-                            <h3>웹프로그래밍</h3>
-                            <h4>평균 평점 {{avgWP}} </h4>
-                            <h4>"{{latestWP.text|truncatechars_html:20}}"</h4>
-                            <a href="{% url 'WP'%}">강의평가 전체 보기</a>
-                    
-                        </div> -->
-    </div>
-</div>
-=======
 <h3>{{user.username}}님 안녕하세요!</h3>
 <div class="section">
     <a class="articles" href="{% url 'GC2' %}">
@@ -87,8 +38,7 @@
         <p class="score">평균평점 {{avgWP}}</p>
         <p>"{{latestWP.text|truncatechars_html:20}}"</p>
     </a>
-</div> 
->>>>>>> bec322aaec6f3f9266c2737653357e41e324af06
+</div>
 
 {% else %}
 <h2>로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</h2>
