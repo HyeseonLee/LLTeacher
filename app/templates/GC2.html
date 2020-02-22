@@ -11,17 +11,29 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <div class="list_container">
-            <div class="list_contents">
+        <div class="section">
+            <div class="main-item">
                 <h1> 일반화학2 강의평가 창입니다. </h1>
-                <h3>{{professorName}} 교수님</h3>
-                <a href="{% url 'GC2_CREATE' %}"> 새 강의평 등록하기 </a>
+                <div class="create_box"><a href="{% url 'GC2_CREATE' %}"><div class="div_create">새 강의평 등록하기</div></a></div>
                 <div>
                     {% for i in GC2 %}
-                        <H3> {{i.seme}} 수강자 입니다.</H3>
-                        <div class="list"> 
+                        <div class="list">
+                            <H3> {{i.seme}} 수강자 입니다.</H3>
+                        
+                            <p>{{i.professorName}} 교수님 <br>
                             강의 후기 : {{i.text}} <BR>
-                            추천 별점 : {{i.score}}
+                            추천 별점 {% if i.score == 1 %} 
+                                <p>☆☆☆☆★</p>
+                            {% elif i.score == 2 %}
+                                <p>☆☆☆★★</p>
+                            {% elif i.score == 3 %}
+                                <p>☆☆★★★</p>
+                            {% elif i.score == 4 %}
+                                <p>☆★★★★</p>
+                            {% elif i.score == 5 %}
+                                <p>★★★★★</p>
+                            {% endif %}
+                            </p>
                         </div>
                         {% if i.author == user %}
                         <a class="btn blue" href = "{% url 'GC2_UPDATE' i.id %}">수정하기</a>
