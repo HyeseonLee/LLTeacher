@@ -20,9 +20,9 @@
     <!-- 가로 아이템들 -->
     <div class="main-item 1">
         <a class="articles" href="{% url 'GC2' %}">
-            <h3>일반화학2 : {{professorNameGC}}</h3>
+            <p class="title">일반화학2 : {{professorNameGC}}</p>
             <p class="score">평균평점 {{avgGC}}</p>
-            <p>"{{latestGC.text|truncatechars_html:20}}"</p>
+            <p class="text">"{{latestGC.text|truncatechars_html:20}}"</p>
         </a>
     </div>
 

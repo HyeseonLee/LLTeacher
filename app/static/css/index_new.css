@@ -9,15 +9,27 @@ body{
     text-align: center;
 }
 .section {
-    margin: 20px 400px;
+    margin: 30px 400px;
     border-radius: 20px;
     background: pink;
 }
 
+
+
+/* 강의평 과목 박스 디자인*/
 .main-item{
     background-color: bisque;
     border-bottom: solid 1px black;
     margin: 20px 30px;
     padding: 20px;
-    /* border-radius: 100px; */
+}
+
+a { color: #000; }
+a:link { color: black; }
+a:visited { color: black; }
+
+.title{
+    font-family: NanumSquareRoundEB;
+    font-size: 60px;
+
 }
