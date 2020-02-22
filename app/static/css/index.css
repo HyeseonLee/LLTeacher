@@ -3,6 +3,7 @@ body{
     width: 100%;
     text-align: center;
     margin: 0;
+    size: 100px;
 }
 div{
     float: left;

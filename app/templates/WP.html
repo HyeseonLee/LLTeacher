@@ -1,1 +1,31 @@
-{% extends "wp_base.html" %}
+{% extends "base_list.html" %}
+{% load static %}
+    {% block title %}
+    웹프로그래밍
+    {% endblock title%}
+
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    <h1> 웹프로그래밍 강의평 창입니다. </h1>
+    <h3>{{professorName}} 교수님</h3>
+    <a href="{% url 'WP_CREATE' %}"> 새 강의평 등록하기 </a>
+    <div>
+        {% for i in WP %}
+            <H3> {{i.seme}} 수강자 입니다.</H3>
+            <div style="border: 1px solid black;"> 
+                강의 후기 : {{i.text}} <BR>
+                추천 별점 : {{i.score}}
+            </div>
+            {% if i.author == user %}
+            <a href = "{% url 'WP_UPDATE' i.id %}">수정하기</a>
+            <a href = "{% url 'WP_DELETE' i.id %}">삭제하기</a>
+            {% endif %}
+        {% endfor %}
+    </div><br>
+    
+    {% else %}
+    <h2>잘못된 접근입니다.</h2>
+    {% endif %}
+    <a href = "{% url 'main' %}"> 메인으로 가기 </a>
+    {% endblock content %}

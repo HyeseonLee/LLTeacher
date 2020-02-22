@@ -37,33 +37,26 @@
                         {% if user.is_authenticated %}
                         <li><a href="javascript:{document.getElementById('logout').submit()}"
                                 style="font-size:20px;"><img src="{%static 'image/log-out.png'%}" width="25px"
-                                    height="25px">로그아웃</a></li>
+                                    height="25px">로그아웃</a>
+                        </li>
                         <form id="logout" method="POST" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <input_type="hidden" />
+                            <input type="hidden" />
                             <!--숨겨진 폼 작성-->
                         </form>
+                        
                         <li><a><img src="{%static 'image/profile.png'%}" width="30" height="30"></a>
                             <ul><br>
-                                <li><a href="javascript:{document.getElementById('logout').submit()}"
-                                        style="font-size:20px;"><img src="{%static 'image/log-out.png'%}" width="25px"
-                                            height="25px">로그아웃</a></li>
-                                <form id="logout" method="POST" action="{% url 'logout' %}">
-                                    {% csrf_token %}
-                                    <input_type="hidden" />
-                                    <!--숨겨진 폼 작성-->
-                                </form>
                                 {% else %}
-                                <li class="li"><a href="{% url 'signup' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
-                                <li class="li"><a href="{% url 'login' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
-                                <li class="li"><a href="{% url 'mypage' %}"><img src="{%static 'image/profile.png'%}" width="30" height="30"></a></li>
+                                <li class="li"><a href="{% url 'signuphome' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
+                                <li class="li"><a href="{% url 'loginhome' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
+                                <li class="li"><a href="{% url 'mypage' %}"><img src="{%static 'image/profile.png'%}"
+                                            width="30" height="30"></a></li>
                                 {% endif %}
                             </ul>
                 </div>
             </div>
             <div class="content">
-
-
                 {% block content %}
                 {% endblock %}
             </div>
