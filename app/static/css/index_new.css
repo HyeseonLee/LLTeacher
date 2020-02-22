@@ -5,6 +5,7 @@ body{
 
 }
 .intro {
+    font-family: NanumSquareRoundR;
     font-size: 30px;
     text-align: center;
 }
@@ -30,6 +31,9 @@ a:visited { color: black; }
 
 .title{
     font-family: NanumSquareRoundEB;
-    font-size: 60px;
-
+    font-size: 25px;
+}
+.text {
+    font-family: NanumSquareRoundR;
+        font-size: 18px;
 }
