@@ -7,15 +7,22 @@
 
   <form method = "POST" action="{%url 'signup' %}">
     {% csrf_token %}
-    <h1>아이디</h1> 
-    <input placeholder="ID" name="username" type="text" required>
-    <hr>
-    <h1>비밀번호</h1> 
-    <input placeholder="PW"  name="password1" type="password" required id="pw_1">
-    <br>
-    <h1>비밀번호 확인</h1> 
-    <input placeholder="RE_PW"  name="password2" type="password" required id="pw_2"><br><br> 
-    <button type="submit" onclick="check_pw()">가입 완료</button>
+      <h1 class="formTitle">회원가입 페이지 입니다.</h1>
+    <div class="InputForm">
+      <h2>ID_이름</h2> 
+      <input name="username" type="text" required>
+    </div>
+    <div class="InputForm">
+      <h2>PW_비밀번호</h2> 
+      <input name="password1" type="password" required id="pw_1">
+      <Br><br><hr style="border: 1px dashed black;">
+      <h2>PW_비밀번호 확인</h2> 
+      <input name="password2" type="password" required id="pw_2"><br> 
+    </div>
+    <button type="submit" onclick="check_pw()">가입 하기</button>
+    <h3>
+      아이디가 이미 있으시다면 <br><a href="{% url 'loginhome' %}">이 곳</a>을 클릭해 로그인해주세요.
+    </h3>
 
   </form>
 
