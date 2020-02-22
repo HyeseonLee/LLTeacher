@@ -6,6 +6,7 @@
     <h1>{% block name %}{% endblock name %} 강의평가 쓰기</h1>
     {{form.as_p}}
     <input type="submit" value="등록하기" class="submitButton">
-    
 </form>
+    {% block link %}
+    {% endblock link %}
 {% endblock form %}

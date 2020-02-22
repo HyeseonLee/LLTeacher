@@ -10,8 +10,8 @@ from django.dispatch import receiver
 class GeneralChemistry2(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
-    lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50)
+    lectureName = models.CharField(max_length=200, default="일반화학2")
+    professorName = models.CharField(max_length=50, default="세아")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -31,8 +31,8 @@ class GeneralChemistry2(models.Model):
 class LawAndEconomics(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
-    lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50)
+    lectureName = models.CharField(max_length=200, default="법과경제학")
+    professorName = models.CharField(max_length=50, default="김용규")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -51,8 +51,8 @@ class LawAndEconomics(models.Model):
 class WebProgramming(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
-    lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50)
+    lectureName = models.CharField(max_length=200, default="웹프로그래밍")
+    professorName = models.CharField(max_length=50, default="혜선이")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
@@ -70,8 +70,8 @@ class WebProgramming(models.Model):
 class PhysicsExperiment(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
-    lectureName = models.CharField(max_length=200)
-    professorName = models.CharField(max_length=50)
+    lectureName = models.CharField(max_length=200, default="물리학실험")
+    professorName = models.CharField(max_length=50, default="태원이")
     SEME_FIELD_CHOICES=[
         ('19년도 2학기', '19년도 2학기'),
         ('19년도 1학기', '19년도 1학기'),
