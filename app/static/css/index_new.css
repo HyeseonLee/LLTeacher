@@ -31,9 +31,17 @@ a:visited { color: black; }
 
 .title{
     font-family: NanumSquareRoundEB;
-    font-size: 25px;
+    font-size: 30px;
+}
+.score{
+    font-family: NanumBarunpenB;
+    font-size: 18px;
 }
 .text {
-    font-family: NanumSquareRoundR;
-        font-size: 18px;
+    font-family: NanumBarunpenB;
+    font-size: 18px;
+}
+
+.title .score .text {
+    margin-bottom: 5px;
 }

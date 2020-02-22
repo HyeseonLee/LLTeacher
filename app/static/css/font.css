@@ -42,3 +42,12 @@
     font-family: 'NanumSquareRoundR';
     src: url(../font/NanumSquareRoundR.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'NanumBarunpenB';
+    src: url(../font/NanumBarunpenB.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'NanumBarunpenR';
+    src: url(../font/NanumBarunpenR.ttf) format('truetype');
+}
