@@ -30,10 +30,6 @@ u{
     padding-bottom: 1px;
     border-bottom: 1px solid black;
 }
-hr{
-    width: 100%;
-    border: 1px dashed black;
-}
 .section {
     margin: 30px 150px;
     border-radius: 25px;

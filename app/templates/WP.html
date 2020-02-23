@@ -11,7 +11,7 @@
     {% if user.is_authenticated %}
         <div class="section">
             <div class="main-item">
-                <h1> 일반화학2 강의평가 페이지입니다. </h1>
+                <h1> 웹프로그래밍 강의평가 페이지입니다. </h1>
                 <div class="create_Box"><a href="{% url 'WP_CREATE' %}"><div class="div_Create">새 강의평 쓰기</div></a>
                                         <a href="{% url 'main' %}"><div class="div_Create goToMain">메인 가기</div></a></div>
                     {% for i in WP %}
