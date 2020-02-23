@@ -47,18 +47,16 @@
                             <li class="li">
                                 {% csrf_token %}
                                 <p class="intro">{{user.username}}님<br>안녕하세요!</p>
-                            </li>
-
+                            </li> 
                             <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
                                         src="{%static 'image/profile.png' %}"></a></li>
+                            
                         </ul>
 
                         <ul><br>
                             {% else %}
                             <li class="li"><a href="{% url 'signuphome' %}" class="li_Signup">회원가입</a></li>
                             <li class="li"><a href="{% url 'loginhome' %}" class="li_Login" >로그인</a></li>
-                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
-                                        src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
                             {% endif %}
                         </ul>
                 </div>
