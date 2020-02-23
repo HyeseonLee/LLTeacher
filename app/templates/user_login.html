@@ -3,19 +3,27 @@
 {% block title %}
   로그인하기
 {% endblock title %}
+
 {% block form %}
+
 <form method = "POST" action="{% url 'login' %}">
   {% csrf_token %}
-    <h1 class="formTitle">로그인 페이지 입니다.</h1>
+    <h1 class="formTitle"> 로그인 페이지 입니다.</h1>
   <div class="InputForm">
-    <h2>ID_이름</h2>
-    <input name="username" type="text" required>
+    <div class="UserLoginBox">
+      <h2>ID_이름</h2>
+      <input class="UserInput" name="username" type="text" required>
+      <hr style="border: 1px dashed black;" width="40%">
+      <h2>PW_비밀번호</h2>
+      <input class="UserInput" name="password" type="password" required>
+      <hr style="border: 1px dashed black;" width="40%">
+    </div>
+    <button class="LoginSignupBtn" type="submit">로그인</button>
   </div>
-  <div class="InputForm">  
-    <h2>PW_비밀번호</h2>
-    <input name="password" type="password" required>
-  </div>
-    <button type="submit">로그인</button>
-    <h3>아이디가 없으시다면<br><a href="{% url 'signuphome' %}">이 곳</a>에서 회원가입을 해주세요.</h3>
 </form>
+
+
 {% endblock form %}
+{% block loginLogout %}
+  <h3>아이디가 없으시다면<br><a class="LoginLogout" href="{% url 'signuphome' %}">이 곳</a>에서 회원가입을 해주세요.</h3>
+{% endblock loginLogout %}  

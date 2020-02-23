@@ -1,3 +1,17 @@
+{% extends "base_list.html" %}
+{% load static %}
+
+{% block title %}
+    내가 쓴 강의평
+{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,14 +22,61 @@
 <body>
 {% if user.is_authenticated %}
     <h1>내가 쓴 강의평</h1>
-    {% for i in render_args %}
-        <h3>강의 후기: {{ i.text }}</h3>
-        <h3>작성 시간: {{ i.time }}</h3>
-        <h3>추천 별점: {{ i.score }}</h3>
+    <div class = "list" >
+    
+    {% for comment in GC2 %}
+    {% if comment.author == user %}
+        {{comment.seme}}
+        {{comment.professorName}}
+        {{comment.score}}
+        {{comment.text}}
+        <br>
+        <a class="btn blue" href = "{% url 'GC2_UPDATE' comment.id %}">수정하기</a>
+        <a class="btn red" href = "{% url 'GC2_DELETE' comment.id %}">삭제하기</a>
+    {% endif %}
+    <br>
     {% endfor %}
-{% else %}
-<h2>잘못된 접근입니다.</h2>
-{% endif %}
-<a href = "{% url 'main' %}"> 메인으로 가기 </a>
+
+    {% for comment in PE %}
+    {% if comment.author == user %}
+        {{comment.seme}}
+        {{comment.professorName}}
+        {{comment.score}}
+        {{comment.text}}
+        <br>
+        <a class="btn blue" href = "{% url 'PE_UPDATE' comment.id %}">수정하기</a>
+        <a class="btn red" href = "{% url 'PE_DELETE' comment.id %}">삭제하기</a>
+    {% endif %}
+    <br>
+    {% endfor %}
+
+    {% for comment in WP %}
+    {% if comment.author == user %}
+        {{comment.seme}}
+        {{comment.professorName}}
+        {{comment.score}}
+        {{comment.text}}
+        <br>
+        <a class="btn blue" href = "{% url 'WP_UPDATE' comment.id %}">수정하기</a>
+        <a class="btn red" href = "{% url 'WP_DELETE' comment.id %}">삭제하기</a>
+    {% endif %}
+    <br>
+    {% endfor %}
+
+    {% for comment in LE %}
+    {% if comment.author == user %}
+        {{comment.seme}}
+        {{comment.professorName}}
+        {{comment.score}}
+        {{comment.text}}
+        <br>
+        <a class="btn blue" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
+        <a class="btn red" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
+    {% endif %}
+    <br>
+    {% endfor %}
+    </div>
+
 </body>
 </html>
+{% endblock %}
