@@ -201,8 +201,8 @@ def signuphome(request):
     return render(request, 'user_signup.html')
 
 def mypage(request):
-    render_args = {}
-    for model in modelList:
-        post = model.objects.filter(author = request.user)
-        render_args['posts'] = post
-    return render(request, 'mypage.html', render_args)
+    GC2 = GeneralChemistry2.objects.all().order_by('-time')
+    PE = PhysicsExperiment.objects.all().order_by('-time')
+    WP = WebProgramming.objects.all().order_by('-time')
+    LE = LawAndEconomics.objects.all().order_by('-time')
+    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE})
