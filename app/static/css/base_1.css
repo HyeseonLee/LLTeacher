@@ -85,7 +85,7 @@ input:focus{
 }
 .input_box{
     padding: 20px;
-    border: 1.8px solid #4169e1;
+    border: 1.8px solid #004077;
     border-radius : 30px; 
     width:600px;
     height:15px;            
@@ -152,19 +152,29 @@ a{
     text-decoration: none;
 }
 .name{
-    font-family: NanumSquareRoundEB;
+    font-family: NanumSquareEB;
     font-size: 55px;
     text-align: center;
+    color: #004077;
 }
 
 .li_Logout {
-    font-family: NanumSquareRoundEB;
-    font-size: 30px;
+    font-family: NanumSquareEB;
+    font-size: 32px;
     text-align: center;
 }
-
+.li_Signup {
+    font-family: NanumSquareEB;
+    font-size: 32px;
+    text-align: center;
+}
+.li_Login {
+    font-family: NanumSquareEB;
+    font-size: 32px;
+    text-align: center;
+}
 .intro {
-    font-family: NanumSquareRoundB;
+    font-family: NanumSquareB;
     font-size: 20px;
     text-align: center;
 }

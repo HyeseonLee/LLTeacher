@@ -5,7 +5,7 @@
 
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base_1.css'%}">
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:500&display=swap" rel="stylesheet">
 
@@ -21,7 +21,7 @@
                 <!-- 왼쪽 -->
                 <div id="box-left">
                     <a href="{% url 'main' %}">
-                        <h1 class="name" style="color: #0175ff;"> ERCIA 강의평가</h1>
+                        <h1 class="name"> ERCIA 강의평가</h1>
                     </a>
                 </div>
                 <!-- 중앙 -->
@@ -50,13 +50,13 @@
                             </li>
 
                             <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
-                                        src="{%static 'image/profile.png'%}"></a></li>
+                                        src="{%static 'image/profile.png' %}"></a></li>
                         </ul>
 
                         <ul><br>
                             {% else %}
-                            <li class="li"><a href="{% url 'signuphome' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
-                            <li class="li"><a href="{% url 'loginhome' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
+                            <li class="li"><a href="{% url 'signuphome' %}" class="li_Signup">회원가입</a></li>
+                            <li class="li"><a href="{% url 'loginhome' %}" class="li_Login" >로그인</a></li>
                             <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
                                         src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
                             {% endif %}
