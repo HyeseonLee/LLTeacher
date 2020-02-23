@@ -1,51 +1,71 @@
 {% extends "base_list.html" %}
 {% load static %}
+
 {% block title %}
-    웹프로그래밍
+웹 프로그래밍
 {% endblock title%}
+
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+<link rel="stylesheet" href="{% static 'css/list_1.css' %}">
 {% endblock css %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <div class="section">
+{% if user.is_authenticated %}
+<div class="section">
+    <div class="top_box">
+        <p class="LONG_page_name">웹 프로그래밍</p>
+
+        <a href="{% url 'WP_CREATE' %}">
+            <div class="create_box">새 강의평 쓰기</div>
+        </a>
+    </div>
+
+    <div class="info_box">
+        <ul>
+            <li class="info_li">교수명</li>
+            <li class="info_li">개설학기</li>
+            <li class="info_li">평균평점</li>
+        </ul>
+        <ul>
+            <li class="info_li">최기환</li>
+            <li class="info_li">2019-2</li>
+            <li class="info_li">???</li>
+        </ul>
+    </div>
+
+    <div class="big_list_box">
+        {% for i in PE %}
+        <div class="list_box">
             <div class="main-item">
-                <h1> 웹프로그래밍 강의평가 페이지입니다. </h1>
-                <div class="create_Box"><a href="{% url 'WP_CREATE' %}"><div class="div_Create">새 강의평 쓰기</div></a>
-                                        <a href="{% url 'main' %}"><div class="div_Create goToMain">메인 가기</div></a></div>
-                    {% for i in WP %}
-                        <div class="listView_Box">  
-                            <div class="listView">
-                                <div class="listView_Top">
-                                    <h3><u>{{i.professorName}}</u> 교수님  //  <u>{{i.seme}}</u> 수강자 입니다.  
-                                    </h3>
-                                </div>
-                                <div class="listView_Middle">
-                                    <h3>추천 별점  :
-                                        {% if i.score == 1 %} ★☆☆☆☆
-                                        {% elif i.score == 2 %} ★★☆☆☆
-                                        {% elif i.score == 3 %} ★★★☆☆
-                                        {% elif i.score == 4 %} ★★★★☆
-                                        {% elif i.score == 5 %} ★★★★★
-                                        {% endif %}</h3>
-                                </div>
-                                <div class="listView_Bottom">
-                                    <h3>강의 후기 : {{i.text}} </h3>
-                                </div>
-                            </div><Br><Br>
-                            {% if i.author == user %}
-                            <div class="listView_UD_Box">
-                                <a class="btn update" href = "{% url 'WP_UPDATE' i.id %}">수정하기</a>
-                                <a class="btn delete" href = "{% url 'WP_DELETE' i.id %}">삭제하기</a>
-                            </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    <br>
+                <p class="score">
+                    {% if i.score == 1 %} ★☆☆☆☆
+                    {% elif i.score == 2 %} ★★☆☆☆
+                    {% elif i.score == 3 %} ★★★☆☆
+                    {% elif i.score == 4 %} ★★★★☆
+                    {% elif i.score == 5 %} ★★★★★
+                    {% endif %}
+                </p>
+                <p class="seme">{{i.seme}} 수강자</p>
+
+                <p class="text">{{i.text}}</p>
             </div>
+
+            {% if i.author == user %}
+            <div class="btn_box">
+                <a href="{% url 'WP_UPDATE' i.id %}"><div class="btn update">수정하기</div></a>
+                <a href="{% url 'WP_DELETE' i.id %}"><div class="btn delete">삭제하기</div></a>
+            </div>
+            {% endif %}
+
         </div>
-    {% else %}
-        <h2>잘못된 접근입니다.</h2>
-    {% endif %}
+        {% endfor %}
+    </div>
+
+    <br>
+</div>
+
+
+{% else %}
+<h2>잘못된 접근입니다.</h2>
+{% endif %}
 {% endblock content %}
