@@ -6,7 +6,7 @@
 {% endblock title%}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/index_pls.css' %}">
+<link rel="stylesheet" href="{% static 'css/index_plls.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -20,7 +20,7 @@
 
 {% if user.is_authenticated %}
 {% csrf_token %}
-<p class="intro">{{user.username}}님 안녕하세요!</p>
+<!-- <p class="intro">{{user.username}}님 안녕하세요!</p> -->
 
 <div class="section">
 
@@ -41,7 +41,6 @@
             <p class="seme">{{latestLE.seme}} 수강자</p>
             <p class="text">"{{latestLE.text|truncatechars_html:20}}"</p>
         </a>
-
     </div>
 
     <div class="main-item 3">
@@ -61,52 +60,51 @@
             <p class="text">"{{latestWP.text|truncatechars_html:20}}"</p>
         </a>
     </div>
-
-
-
 </div>
 
 {% else %}
 
 <div class="section">
 
-    <!-- 가로 아이템들 -->
-    <div class="main-item 1">
-
-        <a class="articles" onclick="loginWarning();" href="#">
-            <p class="title">일반화학2 : {{professorNameGC}}</p>
-            <p class="score">평균평점 {{avgGC}}</p>
-            <p class="text">"{{latestGC.text|truncatechars_html:20}}"</p>
-        </a>
+        <!-- 가로 아이템들 -->
+        <div class="main-item 1">
+            <a class="articles" onclick="loginWarning();" href="#">
+                <p class="title">일반화학2 : {{professorNameGC}}</p>
+                <p class="score">평균평점 {{avgGC}}</p>
+                <p class="seme">{{latestGC.seme}} 수강자</p>
+                <p class="text">"{{latestGC.text|truncatechars_html:20}}"</p>
+            </a>
+        </div>
+    
+        <div class="main-item 2">
+            <a class="articles" onclick="loginWarning();" href="#">
+                <p class="title">법과 경제학 : {{professorNameLE}}</p>
+                <p class="score">평균평점 {{avgLE}}</p>
+                <p class="seme">{{latestLE.seme}} 수강자</p>
+                <p class="text">"{{latestLE.text|truncatechars_html:20}}"</p>
+            </a>
+        </div>
+    
+        <div class="main-item 3">
+            <a class="articles" onclick="loginWarning();" href="#">
+                <p class="title">일반물리학실험 : {{professorNamePE}}</p>
+                <p class="score">평균평점 {{avgPE}}</p>
+                <p class="seme">{{latestPE.seme}} 수강자</p>
+                <p class="text">"{{latestPE.text|truncatechars_html:20}}"</p>
+            
+            </a>
+        </div>
+        <div class="main-item 4">
+            <a class="articles" onclick="loginWarning();" href="#">
+                <p class="title">웹프로그래밍 : {{professorNameWP}}</p>
+                <p class="score">평균평점 {{avgWP}}</p>
+                <p class="seme">{{latestWP.seme}} 수강자</p>
+                <p class="text">"{{latestWP.text|truncatechars_html:20}}"</p>
+            </a>
+        </div>
     </div>
 
-    <div class="main-item 2">
-        <a class="articles" onclick="loginWarning();" href="#">
-            <h3>법과경제학 : {{professorNameGC}}</h3>
-            <p class="score">평균평점 {{avgLE}}</p>
-            <p>"{{latestLE.text|truncatechars_html:20}}"</p>
-        </a>
-
-    </div>
-
-    <div class="main-item 3">
-        <a class="articles" onclick="loginWarning();" href="#">
-            <h3>물리학실험 : {{professorNameGC}}</h3>
-            <p class="score">평균평점 {{avgPE}}</p>
-            <p>"{{latestPE.text|truncatechars_html:20}}"</p>
-        </a>
-    </div>
-    <div class="main-item 4">
-        <a class="articles" onclick="loginWarning();" href="#">
-            <h3>웹프로그래밍 : {{professorNameGC}}</h3>
-            <p class="score">평균평점 {{avgWP}}</p>
-            <p>"{{latestWP.text|truncatechars_html:20}}"</p>
-        </a>
-    </div>
-
-</div>
-
-<p class="intro">로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</p>
+<!-- <p class="intro">로그인을 하시면 더 자세한 강의평가를 볼 수 있어요!</p> -->
 
 {% endif %}
 

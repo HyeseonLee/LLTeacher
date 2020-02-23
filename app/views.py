@@ -190,9 +190,16 @@ def login(request):
         else:
             return redirect('user_login.html')
 
+# def logout(request):
+#     auth.logout(request)
+#     return render(request, 'index.html')
+# 로그아웃 함수 추가
 def logout(request):
-    auth.logout(request)
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('main')
     return render(request, 'index.html')
+
 
 def loginhome(request):
     return render(request,'user_login.html')
