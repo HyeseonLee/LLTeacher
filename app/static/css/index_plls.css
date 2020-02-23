@@ -4,17 +4,12 @@ body{
     /* text-align: center; */
 
 }
-.intro {
-    font-family: NanumSquareRoundR;
-    font-size: 30px;
-    text-align: center;
-}
+
 .section {
     margin: 30px 400px;
     border-radius: 20px;
     background: pink;
 }
-
 
 
 /* 강의평 과목 박스 디자인*/

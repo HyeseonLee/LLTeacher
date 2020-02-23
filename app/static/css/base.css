@@ -151,3 +151,21 @@ hr{
 a{
     text-decoration: none;
 }
+.name{
+    font-family: NanumSquareRoundEB;
+    font-size: 55px;
+    text-align: center;
+}
+
+.li_Logout {
+    font-family: NanumSquareRoundEB;
+    font-size: 30px;
+    text-align: center;
+}
+
+.intro {
+    font-family: NanumSquareRoundB;
+    font-size: 20px;
+    text-align: center;
+}
+
