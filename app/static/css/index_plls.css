@@ -6,7 +6,7 @@ body{
 }
 
 .section {
-    margin: 30px 400px;
+    margin: 0 400px;
     border-radius: 20px;
     background: pink;
 }
