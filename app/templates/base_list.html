@@ -12,7 +12,12 @@
     {% block css %}{% endblock css %}
 
 </head>
-
+<script type="text/javascript">
+    function loginWarning(){
+        confirm("로그인시 사용 가능합니다.");    
+        return false;
+    }
+</script>
 <body>
     <div class="container">
         <div class="outer">
@@ -58,7 +63,7 @@
                             {% else %}
                             <li class="li"><a href="{% url 'signuphome' %}" style="font-family:'a옛날목욕탕L'">회원가입</a></li>
                             <li class="li"><a href="{% url 'loginhome' %}" style="font-family:'a옛날목욕탕L'">로그인</a></li>
-                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
+                            <li class="li"><a onclick="loginWarning();"><img class="profile_img"
                                         src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
                             {% endif %}
                         </ul>
