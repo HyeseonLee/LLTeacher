@@ -4,25 +4,27 @@
   회원가입하기
 {% endblock title %}
 {% block form %}
-<div class="UserSignupBox">
+<div class="UserFrom">
   <form method = "POST" action="{%url 'signup' %}">
     {% csrf_token %}
       <h1 class="formTitle">회원가입 페이지 입니다.</h1>
     <div class="InputForm">
-      <h2>ID_이름 : <input class="UserInput" name="username" type="text" required></h2> 
-      <hr style="border: 1px dashed black;" width="50%">
-      <h2>PW_비밀번호 : <input class="UserInput" name="password1" type="password" required id="pw_1"></h2> 
-      <hr style="border: 1px dashed black;" width="50%">
-      <h2>PW_비밀번호 확인 : <input class="UserInput" name="password2" type="password" required id="pw_2"></h2>
-      <hr style="border: 1px dashed black;" width="50%"> 
-      <button class="LoginSignupBtn" type="submit" onclick="check_pw()">가입 하기</button>
+        <div class="UserSignupBox">
+          <h2>ID_이름 : <input class="UserInput" name="username" type="text" required></h2> 
+          <hr style="border: 1px dashed black;" width="75%" align="left">
+          <h2>PW_비밀번호 : <input class="UserInput" name="password1" type="password" required id="pw_1"></h2> 
+          <hr style="border: 1px dashed black;" width="90%" align="left">
+          <h2>PW_비밀번호 확인 : <input class="UserInput" name="password2" type="password" required id="pw_2"></h2>
+          <hr style="border: 1px dashed black;" width="103%" align="left">
+        </div><Br>
+          <button class="LoginSignupBtn" type="submit" onclick="check_pw()">가입 하기</button>
     </div>
   </form>
 </div>
 {% endblock form %}
 
 {% block loginLogout %}
-  <h3>아이디가 이미 있으시다면 <br><a class="LoginLogout" href="{% url 'loginhome' %}">이 곳</a>을 클릭해 로그인해주세요.</h3>
+  <h3>아이디가 이미 있다면 <br><a class="LoginLogout" href="{% url 'loginhome' %}">⭕</a>를 클릭</h3>
 {% endblock loginLogout %}  
 
 {% block shortJava %}

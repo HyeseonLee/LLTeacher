@@ -13,8 +13,12 @@
 
 <script type="text/javascript">
     function loginWarning(){
-        confirm("로그인하시면 더 자세한 강의평가를 볼 수 있어요!");    
-        return false;
+        const yes = confirm("로그인하시면 더 자세한 강의평가를 볼 수 있어요!\n'확인'을 누르시면 로그인페이지로 이동합니다.");
+        if (yes){
+            location.replace('loginhome');
+        }
+        else{
+        }
     }
 </script>
 
