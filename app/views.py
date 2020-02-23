@@ -213,3 +213,7 @@ def mypage(request):
     WP = WebProgramming.objects.all().order_by('-time')
     LE = LawAndEconomics.objects.all().order_by('-time')
     return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE})
+
+def search(request):
+
+    return render(request,'search.html')

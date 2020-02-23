@@ -26,11 +26,12 @@
                 </div>
                 <!-- 중앙 -->
                 <div id='box-center'>
-                    <form>
+                    <form method='get' action="search">
                         <input class="input_button" type="image" src="{% static 'image/find.png'%}" alt="Submit">
-                        <input class="input_box" type="text" placeholder="과목명, 교수명으로 검색">
+                        <input class="input_box" type="text" name = "q" placeholder="과목명, 교수명으로 검색">
                     </form>
                 </div>
+
                 <!-- 오른쪽 -->
                 <div id='box-right'>
                     <ul>
