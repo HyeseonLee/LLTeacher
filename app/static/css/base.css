@@ -48,12 +48,14 @@ body{
     display: flex;
     background-color: white;
     border-bottom: solid 1px black;
+    position: relative;
 }
 
 #box-left { 
 flex: 1.5;
 text-align: center;
-padding: 40px 0;
+padding: 25px 0;
+font-size: 1.3rem;
 
 }  
 
@@ -111,7 +113,7 @@ input:focus{
       display: inline-block;
       text-align: center;
       outline : lpx dotted blue;
-      margin-right: 30px;
+      margin-right: 20px;
       font-size: 30px;
   }
   .profile_img{

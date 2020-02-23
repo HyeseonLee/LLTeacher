@@ -7,13 +7,10 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:500&display=swap" rel="stylesheet">
         
     {% block css %}{% endblock css %}
-    <!-- 필요한 css 경로는 상속받은 html에서 하는게 좋을까?-->
 
-    <!-- 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"> -->
 </head>
 
 <body>
@@ -25,7 +22,7 @@
                 <!-- 왼쪽 -->
                 <div id="box-left">
                     <a href="{% url 'main' %}">
-                        <h1 style="color: #3c24ff;">ERICA 강의평가 사이트</h1>
+                        <h1 style="color: #0175ff;"> ERCIA 강의평가 사이트</h1>
                         <!-- <img class="img_logo" src="{% static 'image/로고2.png'%}"> -->
                     </a>
                 </div>
@@ -43,14 +40,14 @@
                         <ul>
 
                             <li class="li"><a href="javascript:{document.getElementById('logout').submit()}"
-                                    style="font-family:'a옛날목욕탕L'">로그아웃</a>
+                                    style="font-family:'a옛날목욕탕L'" class="li_Logout">로그아웃</a>
                                 <form id="logout" method="POST" action="{% url 'logout' %}">
                                     {% csrf_token %}
                                     <input type="hidden" />
 
                                 </form>
                             </li>
-                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img" src="{%static 'image/profile.png'%}"></a>
+                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img" src="{%static 'image/profile.png'%}"></a></li>
                         </ul>
 
                         <ul><br>

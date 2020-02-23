@@ -9,28 +9,43 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <div class="list_container">
-            <div class="list_contents">
-                <h1> 법과경제학 강의평가 창입니다. </h1>
-                <h3>{{professorName}} 교수님</h3>
-                <a href="{% url 'PE_CREATE' %}"> 새 강의평 등록하기 </a>
-                <div>
+        <div class="section">
+            <div class="main-item">
+                <h1> 일반화학2 강의평가 페이지입니다. </h1>
+                <div class="create_Box"><a href="{% url 'PE_CREATE' %}"><div class="div_Create">새 강의평 쓰기</div></a>
+                                        <a href="{% url 'main' %}"><div class="div_Create goToMain">메인 가기</div></a></div>
                     {% for i in PE %}
-                        <H3> {{i.seme}} 수강자 입니다.</H3>
-                        <div class="list"> 
-                            강의 후기 : {{i.text}} <BR>
-                            추천 별점 : {{i.score}}
+                        <div class="listView_Box">  
+                            <div class="listView">
+                                <div class="listView_Top">
+                                    <h3><u>{{i.professorName}}</u> 교수님  //  <u>{{i.seme}}</u> 수강자 입니다.  
+                                    </h3>
+                                </div>
+                                <div class="listView_Middle">
+                                    <h3>추천 별점  :
+                                        {% if i.score == 1 %} ★☆☆☆☆
+                                        {% elif i.score == 2 %} ★★☆☆☆
+                                        {% elif i.score == 3 %} ★★★☆☆
+                                        {% elif i.score == 4 %} ★★★★☆
+                                        {% elif i.score == 5 %} ★★★★★
+                                        {% endif %}</h3>
+                                </div>
+                                <div class="listView_Bottom">
+                                    <h3>강의 후기 : {{i.text}} </h3>
+                                </div>
+                            </div><Br><Br>
+                            {% if i.author == user %}
+                            <div class="listView_UD_Box">
+                                <a class="btn update" href = "{% url 'PE_UPDATE' i.id %}">수정하기</a>
+                                <a class="btn delete" href = "{% url 'PE_DELETE' i.id %}">삭제하기</a>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% if i.author == user %}
-                        <a href = "{% url 'PE_UPDATE' i.id %}">수정하기</a>
-                        <a href = "{% url 'PE_DELETE' i.id %}">삭제하기</a>
-                        {% endif %}
                     {% endfor %}
-                </div><br>
+                    <br>
             </div>
         </div>
     {% else %}
         <h2>잘못된 접근입니다.</h2>
     {% endif %}
-    <a href = "{% url 'main' %}"> 메인으로 가기 </a>
 {% endblock content %}

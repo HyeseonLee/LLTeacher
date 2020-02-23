@@ -13,38 +13,41 @@
     {% if user.is_authenticated %}
         <div class="section">
             <div class="main-item">
-                <h1> 일반화학2 강의평가 창입니다. </h1>
-                <div class="create_box"><a href="{% url 'GC2_CREATE' %}"><div class="div_create">새 강의평 등록하기</div></a></div>
-                <div>
+                <h1> 일반화학2 강의평가 페이지입니다. </h1>
+                <div class="create_Box"><a href="{% url 'GC2_CREATE' %}"><div class="div_Create">새 강의평 쓰기</div></a>
+                                        <a href="{% url 'main' %}"><div class="div_Create goToMain">메인 가기</div></a></div>
                     {% for i in GC2 %}
-                        <div class="list">
-                            <H3> {{i.seme}} 수강자 입니다.</H3>
-                        
-                            <p>{{i.professorName}} 교수님 <br>
-                            강의 후기 : {{i.text}} <BR>
-                            추천 별점 {% if i.score == 1 %} 
-                                <p>☆☆☆☆★</p>
-                            {% elif i.score == 2 %}
-                                <p>☆☆☆★★</p>
-                            {% elif i.score == 3 %}
-                                <p>☆☆★★★</p>
-                            {% elif i.score == 4 %}
-                                <p>☆★★★★</p>
-                            {% elif i.score == 5 %}
-                                <p>★★★★★</p>
+                        <div class="listView_Box">  
+                            <div class="listView">
+                                <div class="listView_Top">
+                                    <h3><u>{{i.professorName}}</u> 교수님  //  <u>{{i.seme}}</u> 수강자 입니다.  
+                                    </h3>
+                                </div>
+                                <div class="listView_Middle">
+                                    <h3>추천 별점  :
+                                        {% if i.score == 1 %} ★☆☆☆☆
+                                        {% elif i.score == 2 %} ★★☆☆☆
+                                        {% elif i.score == 3 %} ★★★☆☆
+                                        {% elif i.score == 4 %} ★★★★☆
+                                        {% elif i.score == 5 %} ★★★★★
+                                        {% endif %}</h3>
+                                </div>
+                                <div class="listView_Bottom">
+                                    <h3>강의 후기 : {{i.text}} </h3>
+                                </div>
+                            </div><Br><Br>
+                            {% if i.author == user %}
+                            <div class="listView_UD_Box">
+                                <a class="btn update" href = "{% url 'GC2_UPDATE' i.id %}">수정하기</a>
+                                <a class="btn delete" href = "{% url 'GC2_DELETE' i.id %}">삭제하기</a>
+                            </div>
                             {% endif %}
-                            </p>
                         </div>
-                        {% if i.author == user %}
-                        <a class="btn blue" href = "{% url 'GC2_UPDATE' i.id %}">수정하기</a>
-                        <a class="btn red" href = "{% url 'GC2_DELETE' i.id %}">삭제하기</a>
-                        {% endif %}
                     {% endfor %}
-                </div><br>
+                    <br>
             </div>
         </div>
     {% else %}
         <h2>잘못된 접근입니다.</h2>
     {% endif %}
-    <a href = "{% url 'main' %}"> 메인으로 가기 </a>
 {% endblock content %}
