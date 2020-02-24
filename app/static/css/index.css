@@ -6,15 +6,19 @@ body{
 }
 
 .section {
-    margin: 0 300px;
+    margin: 10px 300px;
     border-radius: 20px;
     background: pink;
+    padding: 10px 0;
+        /* border : 2px solid black; */
+
 }
 
 /* 강의평 과목 박스 디자인*/
 .main-item{
-    background-color: rgb(255, 241, 218);
-    border-bottom: solid 1px black;
+    background-color:white;
+    border : solid 1px black;
+    /* border-bottom: solid 1px black; */
     margin: 20px 30px;
     padding: 30px 40px;
     border-radius: 10px;
