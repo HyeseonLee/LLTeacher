@@ -121,11 +121,9 @@
                         <a class="btn update" href = "{% url 'WP_UPDATE' comment.id %}">수정하기</a>
                         <a class="btn delete" href = "{% url 'WP_DELETE' comment.id %}">삭제하기</a>
                     </div>
-                    </div>
-                <br>
             {% endfor %}
+        </div>
     </div>
-
 </body>
 </html>
 {% endblock %}
