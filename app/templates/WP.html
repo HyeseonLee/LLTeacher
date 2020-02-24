@@ -12,14 +12,11 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="section">
-    <div class="top_box">
-        <p class="LONG_page_name">웹 프로그래밍</p>
-
-        <a href="{% url 'WP_CREATE' %}">
-            <div class="create_box">새 강의평 쓰기</div>
-        </a>
-    </div>
-
+        <div class="top_box">
+            <div class="top_box_left"><p class="page_name">웹프로그래밍</p></div>
+            <div class="top_box_right"><a href="{% url 'WP_CREATE' %}">
+                <div class="create_box">새 강의평 쓰기</div></a></div>  
+        </div>
     <div class="info_box">
         <ul>
             <li class="info_li">교수명</li>

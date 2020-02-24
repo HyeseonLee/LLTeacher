@@ -12,13 +12,11 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="section">
-    <div class="top_box">
-        <p class="page_name">법과 경제학</p>
-
-        <a href="{% url 'LE_CREATE' %}">
-            <div class="create_box">새 강의평 쓰기</div>
-        </a>
-    </div>
+        <div class="top_box">
+            <div class="top_box_left"><p class="page_name">법과경제학</p></div>
+            <div class="top_box_right"><a href="{% url 'LE_CREATE' %}">
+                <div class="create_box">새 강의평 쓰기</div></a></div>  
+        </div>
 
     <div class="info_box">
         <ul>
