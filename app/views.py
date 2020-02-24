@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
@@ -222,10 +223,9 @@ def result(request):
 
     query = request.GET.get('query','')
 
-    if request.method == 'GET':
-        if query:
-            GC2posts = GC2posts.filter(lectureName=query, professorName=query)
-            PEposts  = PEposts.filter(lectureName=query, professorName=query)
-            WPposts  = WPposts.filter(lectureName=query, professorName=query)
-            LEposts  = LEposts.filter(lectureName=query, professorName=query)
-    return render(request, 'result.html',{'GC2posts':GC2posts, 'PEposts':PEposts, 'WPposts':WPposts, 'LEposts':LEposts})
+    if query:
+        GC2posts = GC2posts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
+        PEposts  = PEposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
+        WPposts  = WPposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
+        LEposts  = LEposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
+    return render(request, 'result.html',{'GC2posts':GC2posts, 'PEposts':PEposts, 'WPposts':WPposts, 'LEposts':LEposts,'query':query})
