@@ -7,7 +7,7 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/index.css' %}"> -->
 {% endblock css %}
 
 {% block content %}
@@ -33,26 +33,22 @@
                         <div class="Mypage_Top">
                             <h1>내가 작성한 일반화학2 강의평가</h1>
                         </div>
-
                         
                         {% for comment in GC2 %}
                         <div class="Mypage_Contents">
-                            <div class="listView_Top">
-                                <p class="title">{{comment.seme}}</p>
 
-                            </div>
-                            <div class="listView_Middle">
-                                <h3>추천 별점  :
-                                    {% if comment.score == 1 %} ★☆☆☆☆
-                                    {% elif comment.score == 2 %} ★★☆☆☆
-                                    {% elif comment.score == 3 %} ★★★☆☆
-                                    {% elif comment.score == 4 %} ★★★★☆
-                                    {% elif comment.score == 5 %} ★★★★★
-                                    {% endif %}</h3>
-                            </div>
-                            <div class="listView_Bottom">   
-                                    <p class="title">강의 후기 : {{comment.text}}</p>
-                            </div>
+                            <p class="mp_seme">{{comment.seme}}</p>
+                            
+                            <p class="listView_Middle">평점 : 
+                                {% if comment.score == 1 %} ★☆☆☆☆
+                                {% elif comment.score == 2 %} ★★☆☆☆
+                                {% elif comment.score == 3 %} ★★★☆☆
+                                {% elif comment.score == 4 %} ★★★★☆
+                                {% elif comment.score == 5 %} ★★★★★
+                                {% endif %}</p>
+                        
+                            <p class="mp_text">강의 후기 : {{comment.text}}</p>
+
                             <div class="listView_UD_Box">
                                 <div class="listView_UD_Contents">
                                     <a class="btn update mypageBtn" href = "{% url 'GC2_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
@@ -71,26 +67,23 @@
 
                             {% for comment in LE %}
                             <div class="Mypage_Contents">
-                                <div class="listView_Top">
-                                    <p class="title">{{comment.seme}}</p>
 
-                                </div>
-                                <div class="listView_Middle">
-                                    <h3>추천 별점  :
-                                        {% if comment.score == 1 %} ★☆☆☆☆
-                                        {% elif comment.score == 2 %} ★★☆☆☆
-                                        {% elif comment.score == 3 %} ★★★☆☆
-                                        {% elif comment.score == 4 %} ★★★★☆
-                                        {% elif comment.score == 5 %} ★★★★★
-                                        {% endif %}</h3>
-                                </div>
-                                <div class="listView_Bottom">   
-                                        <p class="title">강의 후기 : {{comment.text}}</p>
-                                </div>
+                                <p class="mp_seme">{{comment.seme}}</p>
+                                
+                                <p class="listView_Middle">평점 : 
+                                    {% if comment.score == 1 %} ★☆☆☆☆
+                                    {% elif comment.score == 2 %} ★★☆☆☆
+                                    {% elif comment.score == 3 %} ★★★☆☆
+                                    {% elif comment.score == 4 %} ★★★★☆
+                                    {% elif comment.score == 5 %} ★★★★★
+                                    {% endif %}</p>
+                            
+                                <p class="mp_text">강의 후기 : {{comment.text}}</p>
+    
                                 <div class="listView_UD_Box">
                                     <div class="listView_UD_Contents">
-                                        <a class="btn update mypageBtn" href = "{% url 'LE_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
-                                        <a class="btn delete mypageBtn" href = "{% url 'LE_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
+                                        <a class="btn update mypageBtn" href = "{% url 'GC2_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
+                                        <a class="btn delete mypageBtn" href = "{% url 'GC2_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
                                     </div>
                                 </div>
                             </div>
@@ -103,30 +96,27 @@
                                 <h1>내가 작성한 일반물리학실험 강의평가</h1>
                             </div>
                             {% for comment in PE %}
-                                <div class="Mypage_Contents">
-                                    <div class="listView_Top">
-                                        <p class="title">{{comment.seme}}</p>
+                            <div class="Mypage_Contents">
 
-                                    </div>
-                                    <div class="listView_Middle">
-                                        <h3>추천 별점  :
-                                            {% if comment.score == 1 %} ★☆☆☆☆
-                                            {% elif comment.score == 2 %} ★★☆☆☆
-                                            {% elif comment.score == 3 %} ★★★☆☆
-                                            {% elif comment.score == 4 %} ★★★★☆
-                                            {% elif comment.score == 5 %} ★★★★★
-                                            {% endif %}</h3>
-                                    </div>
-                                    <div class="listView_Bottom">   
-                                            <p class="title">강의 후기 : {{comment.text}}</p>
-                                    </div>
-                                    <div class="listView_UD_Box">
-                                        <div class="listView_UD_Contents">
-                                            <a class="btn update mypageBtn" href = "{% url 'PE_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
-                                            <a class="btn delete mypageBtn" href = "{% url 'PE_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
-                                        </div>
+                                <p class="mp_seme">{{comment.seme}}</p>
+                                
+                                <p class="listView_Middle">평점 : 
+                                    {% if comment.score == 1 %} ★☆☆☆☆
+                                    {% elif comment.score == 2 %} ★★☆☆☆
+                                    {% elif comment.score == 3 %} ★★★☆☆
+                                    {% elif comment.score == 4 %} ★★★★☆
+                                    {% elif comment.score == 5 %} ★★★★★
+                                    {% endif %}</p>
+                            
+                                <p class="mp_text">강의 후기 : {{comment.text}}</p>
+    
+                                <div class="listView_UD_Box">
+                                    <div class="listView_UD_Contents">
+                                        <a class="btn update mypageBtn" href = "{% url 'GC2_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
+                                        <a class="btn delete mypageBtn" href = "{% url 'GC2_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
                                     </div>
                                 </div>
+                            </div>
                             {% endfor %}
                         </div>
                     {% endif %}
@@ -139,26 +129,23 @@
                             
                             {% for comment in WP %}
                             <div class="Mypage_Contents">
-                                <div class="listView_Top">
-                                    <p class="title">{{comment.seme}}</p>
 
-                                </div>
-                                <div class="listView_Middle">
-                                    <h3>추천 별점  :
-                                        {% if comment.score == 1 %} ★☆☆☆☆
-                                        {% elif comment.score == 2 %} ★★☆☆☆
-                                        {% elif comment.score == 3 %} ★★★☆☆
-                                        {% elif comment.score == 4 %} ★★★★☆
-                                        {% elif comment.score == 5 %} ★★★★★
-                                        {% endif %}</h3>
-                                </div>
-                                <div class="listView_Bottom">   
-                                        <p class="title">강의 후기 : {{comment.text}}</p>
-                                </div>
+                                <p class="mp_seme">{{comment.seme}}</p>
+                                
+                                <p class="listView_Middle">평점 : 
+                                    {% if comment.score == 1 %} ★☆☆☆☆
+                                    {% elif comment.score == 2 %} ★★☆☆☆
+                                    {% elif comment.score == 3 %} ★★★☆☆
+                                    {% elif comment.score == 4 %} ★★★★☆
+                                    {% elif comment.score == 5 %} ★★★★★
+                                    {% endif %}</p>
+                            
+                                <p class="mp_text">강의 후기 : {{comment.text}}</p>
+    
                                 <div class="listView_UD_Box">
                                     <div class="listView_UD_Contents">
-                                        <a class="btn update mypageBtn" href = "{% url 'WP_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
-                                        <a class="btn delete mypageBtn" href = "{% url 'WP_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
+                                        <a class="btn update mypageBtn" href = "{% url 'GC2_UPDATE' comment.id %}"><div class="btn update">수정하기</div></a>
+                                        <a class="btn delete mypageBtn" href = "{% url 'GC2_DELETE' comment.id %}"><div class="btn delete">삭제하기</div></a>
                                     </div>
                                 </div>
                             </div>

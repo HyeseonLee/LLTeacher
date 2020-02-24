@@ -18,20 +18,24 @@ body{
     flex-direction: column;
     margin: 0 300px;
     border-radius: 20px;
-    background: white;
+    background: pink;
     padding: 40px 60px;
 }
 .Mypage_Top{
     display: inline-block;
     width: 100%;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 14px;
 }
 .main-item{
     display: inline-block;
+    padding: 50px 60px 15px 60px;
+    background-color: white;
+    border-radius: 20px;
+
 }
 .main-item2{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 div .Mypage_Contents{
     width: 100%;
@@ -40,6 +44,7 @@ div .Mypage_Contents{
     display: inline-block;
     text-align: center;
     margin-bottom: 20px;
+    padding: 20px 0;
 }
 .main-item2{
     border: none;
@@ -51,15 +56,27 @@ div .Mypage_Contents{
     text-align: center;
     margin-bottom: 30px;
 }
-.listView_Top{
-    padding: 1rem 0rem;
+.mp_seme{
+    padding-bottom: 10px;
+    font-family: NanumSquareB;
+    font-size: 20px;
+    color: black;
 }
 .listView_Middle{
-    padding-bottom: 1rem;
+    padding-bottom: 10px;
+    font-family: NanumSquareB;
+    font-size: 21px;
+    color: rgb(0, 0, 0);
 }
-.listView_UD_Box{
+
+.mp_text{
+    font-family: NanumSquareB;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+/* .listView_UD_Box{
     margin: 1rem 0rem;
-}
+} */
 a.mypageBtn{
     text-align: center;
     display: inline-block;
