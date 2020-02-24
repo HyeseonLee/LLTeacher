@@ -6,7 +6,7 @@
 {% endblock title%}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -22,12 +22,12 @@
 <body>
     <div class="section">
         <div class="main-item">
-            <h1>내가 쓴 강의평</h1>
+            <h1 id="main-title">내가 쓴 강의평</h1>
             <br>
             {% if countall == 0 %}
             <h2>아직 작성하신 강의평가가 없어요!</h2>
             {% endif %}
-            
+
             {% for comment in GC2 %}
                     <div class="listView_Top">
                         {{comment.seme}}
@@ -43,7 +43,7 @@
                     {% endif %}</h3>
                 </div>
                 <div class="listView_Bottom">   
-                        {{comment.text}}
+                        강의 후기 :{{comment.text}}
                 </div>
                 <div class="listView_UD_Box">
                     <a class="btn update" href = "{% url 'GC2_UPDATE' comment.id %}">수정하기</a>
@@ -67,7 +67,7 @@
                         {% endif %}</h3>
                     </div>
                     <div class="listView_Bottom">   
-                        {{comment.text}}
+                        강의 후기: {{comment.text}}
                     </div>
                     <div class="listView_UD_Box">
                         <a class="btn update" href = "{% url 'PE_UPDATE' comment.id %}">수정하기</a>
@@ -91,7 +91,7 @@
                             {% endif %}</h3>
                     </div>
                     <div class="listView_Bottom">   
-                            {{comment.text}}
+                            강의 후기: {{comment.text}}
                     </div>
                     <div class="listView_UD_Box">
                         <a class="btn update" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
@@ -115,7 +115,7 @@
                             {% endif %}</h3>
                     </div>
                     <div class="listView_Bottom">   
-                        {{comment.text}}
+                        강의 후기: {{comment.text}}
                     </div>
                     <div class="listView_UD_Box">
                         <a class="btn update" href = "{% url 'WP_UPDATE' comment.id %}">수정하기</a>

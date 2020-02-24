@@ -212,17 +212,17 @@ class GC2Delete(DeleteView):
     success_url = reverse_lazy('GC2')
 
 class LEDelete(DeleteView):
-    model = GeneralChemistry2
+    model = LawAndEconomics
     template_name = 'le_delete_form.html'
     success_url = reverse_lazy('LE')
 
 class PEDelete(DeleteView):
-    model = GeneralChemistry2
+    model = PhysicsExperiment
     template_name = 'pe_delete_form.html'
     success_url = reverse_lazy('PE')
 
 class WPDelete(DeleteView):
-    model = GeneralChemistry2
+    model = WebProgramming
     template_name = 'wp_delete_form.html'
     success_url = reverse_lazy('WP')
    
