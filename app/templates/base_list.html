@@ -29,7 +29,7 @@
                 <div id='box-center'>
                     <form action = "{% url 'result' %}" method='GET'>
                         <input class="input_button" type="image" src="{% static 'image/find.png'%}" alt="Submit">
-                        <input class="input_box" type="text" name="query" placeholder="과목명, 교수명으로 검색">
+                        <input class="input_box" type="text" name="query" value="{{query}}" placeholder="과목명, 교수명으로 검색">
                     </form>
                 </div>
                 {% else %}
