@@ -13,10 +13,10 @@
 <div class="section">
     <div class="top_box">
         <div class="top_box_left">
-{% if countall == 0 or query == " " %}
+            {% if countall == 0 or query == " " %}
             <p class="page_name">검색결과가 없습니다.</p>
             {% else %}
-            <p class="page_name">{{countall}}개의 결과가 있습니다.</p>
+            <p class="page_name">"{{query}}"에 대한 {{countall}}개의 결과가 있습니다.</p>
             {% endif %}
         </div>
     </div>
