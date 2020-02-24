@@ -1,10 +1,14 @@
 {% extends "abase_form.html" %}
 {% load static %}
 {% block form %}
-<form method="POST">
-    {% csrf_token %}
-    <h1>본인이 등록하신 {% block name %}{% endblock name %} 강의평을 정말 삭제할까요? 💁‍♂️</h1><br>
-    <input type="submit" value="삭제하기">
-</form>
-<h3>메인으로 돌아가고 싶으시면<br><a href = "{% url 'main' %}">❌</a>을 클릭해주세요</h3>
+<div class="DELETE_View_Form">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>{% block name %}{% endblock name %} 강의평을<br> 정말 삭제할까요? 💁‍♂️</h1><br>
+        <input class="BaseFormBtn" type="submit" value="삭제할래요">
+    </form>
+</div>
 {% endblock form %}
+{% block link %}
+    <h3>일반화학2 강의평 페이지로 돌아가기<br><a class="LoginLogout" href="{% url 'GC2' %}">⭕</a>를 클릭해주세요</h3>
+{% endblock link%}
