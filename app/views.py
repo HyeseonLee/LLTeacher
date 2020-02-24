@@ -290,7 +290,7 @@ def mypage(request):
         countLE += 1
     countall = countGC+countPE+countWP+countLE
 
-    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE,'countall':countall})
+    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE,'countall':countall, 'countGC':countGC, 'countPE':countPE, 'countWP':countWP, 'countLE':countLE})
 
 #검색창 코드
 def result(request):
