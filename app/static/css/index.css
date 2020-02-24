@@ -17,7 +17,7 @@ body{
 /* 강의평 과목 박스 디자인*/
 .main-item{
     background-color:white;
-    border : solid 1px black;
+    border : solid 1px rgb(49, 45, 45);
     /* border-bottom: solid 1px black; */
     margin: 20px 30px;
     padding: 30px 40px;
