@@ -144,7 +144,7 @@ class GC2Create(CreateView):
 
 class LECreate(CreateView):
     model = LawAndEconomics
-    template_name = 'gc2_create_form.html'
+    template_name = 'le_create_form.html'
     fields = ['seme','score','text']
     
     def form_valid(self,form):
@@ -156,7 +156,7 @@ class LECreate(CreateView):
 
 class PECreate(CreateView):
     model = PhysicsExperiment
-    template_name = 'gc2_create_form.html'
+    template_name = 'pe_create_form.html'
     fields = ['seme','score','text']
     
     def form_valid(self,form):
@@ -168,7 +168,7 @@ class PECreate(CreateView):
 
 class WPCreate(CreateView):
     model = WebProgramming
-    template_name = 'gc2_create_form.html'
+    template_name = 'wp_create_form.html'
     fields = ['seme','score','text']
     
     def form_valid(self,form):
