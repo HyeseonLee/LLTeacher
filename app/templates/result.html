@@ -6,12 +6,16 @@
 {% endblock title%}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/index_plls.css' %}">
+ <link rel="stylesheet" href="{% static 'css/index_plls.css' %}">
 {% endblock css %}
 
 {% block content %}
-<h1>{{query}}검색 결과</h1>
+<div class="title">
+<h1>"{{query}}"검색 결과</h1>
+</div>
 {% for post in GC2posts%}
+<div class="section">
+    <div class="main-item">
         <div class="listView_Box">  
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
@@ -33,10 +37,14 @@
                 </div>
             </div><Br><Br>
         </div>
-    <br>
+    </div>
+</div>
+<br>
 {% endfor %}
 
 {% for post in PEposts%}
+<div class="section">
+    <div class="main-item">
         <div class="listView_Box">  
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
@@ -58,10 +66,14 @@
                 </div>
             </div><Br><Br>
         </div>
-    <br>
+    </div>
+</div>
+<br>
 {% endfor %}
 
 {% for post in LEposts%}
+<div class="section">
+    <div class="main-item">
         <div class="listView_Box">  
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
@@ -83,10 +95,14 @@
                 </div>
             </div><Br><Br>
         </div>
-    <br>
+    </div>
+</div>
+<br>
 {% endfor %}
 
 {% for post in WPposts%}
+<div class="section">
+    <div class="main-item">
         <div class="listView_Box">  
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
@@ -108,7 +124,9 @@
                 </div>
             </div><Br><Br>
         </div>
-    <br>
+    </div>
+</div>
+<br>
 {% endfor %}
 
 {% endblock%}
