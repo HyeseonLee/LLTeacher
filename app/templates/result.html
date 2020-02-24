@@ -10,14 +10,20 @@
 {% endblock css %}
 
 {% block content %}
+<div class="title-section">
 <div class="title">
-<h1>"{{query}}"검색 결과</h1>
-</div>
 {% if countall == 0 %}
 <h1>검색결과가 없습니다.</h1>
+{% else %}
+<h1>{{countall}}개의 결과가 있습니다.</h1>
 {% endif %}
+</div>
+
+</div>
 
 {% for post in GC2posts%}
+{% if countall == 0 %}
+{% else %}
 <div class="section">
     <div class="main-item">
         <div class="listView_Box">  
@@ -44,9 +50,12 @@
     </div>
 </div>
 <br>
+{% endif %}
 {% endfor %}
 
 {% for post in PEposts%}
+{% if countall == 0 %}
+{% else %}
 <div class="section">
     <div class="main-item">
         <div class="listView_Box">  
@@ -73,9 +82,12 @@
     </div>
 </div>
 <br>
+{% endif %}
 {% endfor %}
 
 {% for post in LEposts%}
+{% if countall == 0 %}
+{% else %}
 <div class="section">
     <div class="main-item">
         <div class="listView_Box">  
@@ -102,9 +114,12 @@
     </div>
 </div>
 <br>
+{% endif %}
 {% endfor %}
 
 {% for post in WPposts%}
+{% if countall == 0 %}
+{% else %}
 <div class="section">
     <div class="main-item">
         <div class="listView_Box">  
@@ -131,6 +146,7 @@
     </div>
 </div>
 <br>
+{% endif %}
 {% endfor %}
 
 {% endblock%}
