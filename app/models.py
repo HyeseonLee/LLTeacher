@@ -25,6 +25,8 @@ class GeneralChemistry2(models.Model):
     # 정렬기준이 필요한거 같아서 자료입력시간만 추가했어요
     def __str__(self):
         return str(self.time)
+    def save(self, *args, **kwargs):
+        super(GeneralChemistry2, self).save(*args, **kwargs)
     
 
 
@@ -46,6 +48,8 @@ class LawAndEconomics(models.Model):
 
     def __str__(self):
         return str(self.time)
+    def save(self, *args, **kwargs):
+        super(LawAndEconomics, self).save(*args, **kwargs)
 
 
 class WebProgramming(models.Model):
@@ -67,6 +71,9 @@ class WebProgramming(models.Model):
     def __str__(self):
         return str(self.time)
 
+    def save(self, *args, **kwargs):
+        super(WebProgramming, self).save(*args, **kwargs)
+
 class PhysicsExperiment(models.Model):
     objects = models.Manager()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default =1, on_delete = models.CASCADE)
@@ -86,6 +93,8 @@ class PhysicsExperiment(models.Model):
     def __str__(self):
         return str(self.time)
 
+    def save(self, *args, **kwargs):
+        super(PhysicsExperiment, self).save(*args, **kwargs)
 ## 회원가입 필요 모델 추가해요
 
 class Profile(models.Model):  

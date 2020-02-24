@@ -5,6 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 
 from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming
 
@@ -97,25 +98,49 @@ class GC2Create(CreateView):
     model = GeneralChemistry2
     template_name = 'gc2_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('GC2')
+    
+    def form_valid(self,form):
+        GeneralChemistry2 = form.save(commit=False)
+        GeneralChemistry2.author = self.request.user
+        GeneralChemistry2.save()
+
+        return HttpResponseRedirect(self.request.POST.get('next', '/'))
 
 class LECreate(CreateView):
     model = LawAndEconomics
-    template_name = 'le_create_form.html'
+    template_name = 'gc2_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('LE')
+    
+    def form_valid(self,form):
+        LawAndEconomics = form.save(commit=False)
+        LawAndEconomics.author = self.request.user
+        LawAndEconomics.save()
+
+        return HttpResponseRedirect(self.request.POST.get('next', '/'))
 
 class PECreate(CreateView):
     model = PhysicsExperiment
-    template_name = 'pe_create_form.html'
+    template_name = 'gc2_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('PE')
+    
+    def form_valid(self,form):
+        PhysicsExperiment = form.save(commit=False)
+        PhysicsExperiment.author = self.request.user
+        PhysicsExperiment.save()
+
+        return HttpResponseRedirect(self.request.POST.get('next', '/'))
 
 class WPCreate(CreateView):
     model = WebProgramming
-    template_name = 'wp_create_form.html'
+    template_name = 'gc2_create_form.html'
     fields = ['seme','score','text']
-    success_url = reverse_lazy('WP')
+    
+    def form_valid(self,form):
+        WebProgramming = form.save(commit=False)
+        WebProgramming.author = self.request.user
+        WebProgramming.save()
+
+        return HttpResponseRedirect(self.request.POST.get('next', '/'))
     
 #UPDATEVIEW
 
