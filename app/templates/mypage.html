@@ -123,13 +123,8 @@
                     </div>
                     {% endif %}
         </div>
-        <br>
-        <a class="btn blue" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
-        <a class="btn red" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
-    <br>
     {% endfor %}
     </div>
-
 </body>
 </html>
 {% endblock %}
