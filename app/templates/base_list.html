@@ -66,7 +66,7 @@
                             {% else %}
                             <li class="li"><a href="{% url 'signuphome' %}" class="li_Signup">회원가입</a></li>
                             <li class="li"><a href="{% url 'loginhome' %}" class="li_Login" >로그인</a></li>
-                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
+                            <li class="li"><a href="" onclick="loginWarning();"><img class="profile_img"
                                         src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
                             {% endif %}
                         </ul>
