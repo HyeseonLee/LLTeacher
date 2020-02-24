@@ -1,6 +1,7 @@
 /*
 abase.form.html 페이지, 리스트 페이지 및 메인 이동 링크 관련
 */
+
 body{
     font-family: 'Noto Serif KR', sans-serif;
     width: 100%;
@@ -115,7 +116,7 @@ input.UserInput{
     outline: none;
     color: white;
     padding : 0.5em 0.9em;
-    margin-bottom: 1.1em;
+    /* margin-bottom: 1.1em; */
 }
 .UserSignupBox {
     text-align: left;

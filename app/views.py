@@ -15,8 +15,8 @@ def index(request):
     contentsGC = GeneralChemistry2.objects.all()
     countGC = 0
     sumGC = 0
-    avgGC = "등록해줘~"
-    professorNameGC="초기이름"
+    avgGC = "none"
+    professorNameGC="none"
     for content in contentsGC:    
         sumGC += content.score
         countGC +=1
@@ -27,8 +27,8 @@ def index(request):
     contentsLE = LawAndEconomics.objects.all()
     countLE = 0
     sumLE = 0
-    avgLE = "등록해줘~"
-    professorNameLE="초기이름"
+    avgLE = "none"
+    professorNameLE="none"
     for content in contentsLE:    
         sumLE += content.score
         countLE +=1
@@ -39,8 +39,8 @@ def index(request):
     contentsPE = PhysicsExperiment.objects.all()
     countPE = 0
     sumPE = 0
-    avgPE = "등록해줘~"
-    professorNamePE="초기이름"
+    avgPE = "none"
+    professorNamePE="none"
     for content in contentsPE:    
         sumPE += content.score
         countPE +=1
@@ -51,8 +51,8 @@ def index(request):
     contentsWP = WebProgramming.objects.all()
     countWP = 0
     sumWP = 0
-    avgWP = "등록해줘~"
-    professorNameWP="초기이름"
+    avgWP = "none"
+    professorNameWP="none"
     for content in contentsWP:    
         sumWP += content.score
         countWP +=1
@@ -71,7 +71,7 @@ class GC2Read(ListView):
         contentsGC = GeneralChemistry2.objects.all()
         countGC = 0
         sumGC = 0
-        avgGC = "등록해줘~"
+        avgGC = "none"
         for content in contentsGC:    
             sumGC += content.score
             countGC +=1
@@ -86,7 +86,7 @@ class LERead(ListView):
         contentsLE = LawAndEconomics.objects.all()
         countLE = 0
         sumLE = 0
-        avgLE = "등록해줘~"
+        avgLE = "none"
     
         for content in contentsLE:    
             sumLE += content.score
@@ -103,7 +103,7 @@ class PERead(ListView):
         contentsPE = PhysicsExperiment.objects.all()
         countPE = 0
         sumPE = 0
-        avgPE = "등록해줘~"
+        avgPE = "none"
 
         for content in contentsPE:    
             sumPE += content.score
@@ -120,7 +120,7 @@ class WPRead(ListView):
         contentsWP = WebProgramming.objects.all()
         countWP = 0
         sumWP = 0
-        avgWP = "등록해줘~"
+        avgWP = "none"
 
         for content in contentsWP:    
             sumWP += content.score

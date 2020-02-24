@@ -23,14 +23,11 @@
                     <div class="CREATE_Link_Contents_List">
                         {% block link %}{% endblock link %}{% block loginLogout %}{% endblock loginLogout %}
                     </div>
-                    <div class="CREATE_Link_Contents_Main">
-                        <h3>메인으로 돌아가기<br><a class="LoginLogout" href = "{% url 'main' %}">❌</a>를 클릭</h3>
-                    </div>
+
             </div>
         </div>
     </div>
 
-    <!--<script src="{% static 'js/create.js' %}" type = "text/javascript"></script>-->
     {% block shortJava %}{% endblock shortJava %}
 </body>
 </html>

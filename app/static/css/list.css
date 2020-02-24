@@ -52,13 +52,13 @@ body{
 
 
 .create_box{
-    background-color: white;
+    background-color: #fff2ab;
     width: 200px;
     height: 60px;
     border-radius: 100px;
     border: solid 1px black;
 
-    font-family: NanumSquareR;
+    font-family: NanumSquareB;
     font-size: 25px;
     color: #000000;
     text-align: center;

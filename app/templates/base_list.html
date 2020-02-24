@@ -12,6 +12,21 @@
     {% block css %}{% endblock css %}
 
 </head>
+<script type="text/javascript">
+    function loginWarning(){
+        const yes = confirm("로그인하시면 더 자세한 강의평가를 볼 수 있어요!\n'확인'을 누르시면 로그인페이지로 이동합니다.");
+        if (yes){
+            location.replace('loginhome');
+        }
+        else{
+            location.replace('main');
+        }
+    }
+
+    function unLoginProfile() {
+        alert("로그인이 필요합니다.")
+    }
+</script>
 <body>
     <div class="container">
         <div class="outer">
@@ -66,7 +81,7 @@
                             {% else %}
                             <li class="li"><a href="{% url 'signuphome' %}" class="li_Signup">회원가입</a></li>
                             <li class="li"><a href="{% url 'loginhome' %}" class="li_Login" >로그인</a></li>
-                            <li class="li"><a href="" onclick="loginWarning();"><img class="profile_img"
+                            <li class="li"><a href="" onclick="unLoginProfile();"><img class="profile_img"
                                         src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
                             {% endif %}
                         </ul>
