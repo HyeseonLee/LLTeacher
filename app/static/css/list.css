@@ -80,6 +80,7 @@ body{
 
 .info_li{
     list-style: none;
+    font-family: NanumSquareR;
     margin-right: 30px;
     padding-bottom: 5px;
 }
@@ -98,23 +99,23 @@ ul{
 .list_box{
     /* font-family: NanumSquareR; */
     font-size: 20px;
-    padding: 15px 0;
+    padding: 20px 0;
     border-bottom: 1px solid black;
 }
 .score{
-    margin-bottom: 4px;
-    font-family: NanumBarunpenB;
+    margin-bottom: 5px;
+    font-family: NanumSquareB;
     font-size: 21px;
     color: rgb(0, 0, 0);
 }
 .seme{
-    margin-bottom: 4px;
-    font-family: NanumBarunpenB;
-    font-size: 15px;
+    margin-bottom: 7px;
+    font-family: NanumSquareB;
+        font-size: 15px;
     color: gray;
 }
 .text {
-    font-family: NanumBarunpenB;
+    font-family: NanumSquareR;
     font-size: 19px;
 }
 

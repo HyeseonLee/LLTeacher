@@ -34,18 +34,18 @@ a:visited { color: black; }
     font-size: 25px;
 }
 .score{
-    margin-bottom: 10px;
-    font-family: NanumBarunpenB;
+    margin-bottom: 7px;
+    font-family: NanumSquareB;
     font-size: 18px;
 }
 .seme{
-    margin-bottom: 4px;
-    font-family: NanumBarunpenB;
+    margin-bottom: 7px;
+    font-family: NanumSquareB;
     font-size: 14px;
     color: gray;
 }
 .text {
-    font-family: NanumBarunpenB;
+    font-family: NanumSquareR;
     font-size: 18px;
 }
 
