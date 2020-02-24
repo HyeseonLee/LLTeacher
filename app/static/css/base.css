@@ -43,16 +43,18 @@ body{
 
 /* 상단 네브바 */
 .top_nav{
-    width: 100%; /* 0731 PM 19:10 기준 가로 넓이임*/
+    /* width: 100%; 0731 PM 19:10 기준 가로 넓이임 */
     height: 120px;
     display: flex;
     background-color: white;
     border-bottom: solid 1px black;
     position: relative;
+    padding: 0 50px;
+
 }
 
 #box-left { 
-flex: 1.5;
+flex: 0.8;
 text-align: center;
 padding: 25px 0;
 font-size: 1.3rem;
@@ -71,7 +73,7 @@ font-size: 1.3rem;
 } */
 
 #box-center {
-flex: 2;
+flex: 1.4;
 text-align: left;
 padding: 30px 0;
 
@@ -87,7 +89,7 @@ input:focus{
     padding: 20px;
     border: 1.8px solid #004077;
     border-radius : 30px; 
-    width:600px;
+    width:680px;
     height:15px;            
     font-size: 17px;
 }
@@ -98,12 +100,13 @@ input:focus{
     padding-left: 30px;
 }
   #box-right {
-    flex: 1;
+    /* flex:1; */
     margin: 0 auto;
     padding: 35px 0;
+    padding-right: 40px;
   }
   #box-right ul{
-      float: left; 
+      float: right; 
       text-align: center;
       margin: 0;
       padding: 0;
