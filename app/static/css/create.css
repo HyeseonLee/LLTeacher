@@ -42,6 +42,7 @@ div .CREATE_Link_Box{
     display: inline-block;
 }
 
+
 /*
 base.create.form.html  createview 양식 꾸미기
 */
@@ -51,12 +52,6 @@ base.create.form.html  createview 양식 꾸미기
     margin: 20px 0 20px 0;
     padding: 0 0 20px 0;
 }
-
-/*
-*.create.form.html  
-*/
-
-
 /*
 user_login.html // user_signpu.html 
 */
@@ -76,10 +71,14 @@ div .InputForm{
     border-radius: 50px;
     padding: 1em 1em 2em 1em;
     margin: 0em 0em 2em 0em;
+    text-align: center;
 }
 .LoginLogout{
     text-decoration: none;
     color: #dc143c;
+    margin: 0em 0.15em 0.5em 0.5em;
+    padding: 0em 0.15em 0.5em 0.5em;
+    font-size: 1.5em;
 }
 input.UserInput{
     background-color: rgb(37, 37, 37);
@@ -89,4 +88,11 @@ input.UserInput{
     color: white;
     padding : 0.5em 0.9em;
     margin-bottom: 1.1em;
+}
+.UserSignupBox {
+    text-align: left;
+    display: inline-block;
+}
+.UserFromBox{
+    width: 100%;
 }

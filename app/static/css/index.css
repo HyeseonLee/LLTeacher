@@ -6,18 +6,18 @@ body{
 }
 
 .section {
-    margin: 0 400px;
+    margin: 0 300px;
     border-radius: 20px;
     background: pink;
 }
 
-
 /* 강의평 과목 박스 디자인*/
 .main-item{
-    background-color: bisque;
+    background-color: rgb(255, 241, 218);
     border-bottom: solid 1px black;
     margin: 20px 30px;
-    padding: 20px;
+    padding: 30px 40px;
+    border-radius: 10px;
 }
 
 a { color: #000; }
