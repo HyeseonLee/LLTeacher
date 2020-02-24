@@ -64,17 +64,35 @@ def index(request):
 
 class GC2Read(ListView):
     model = GeneralChemistry2
+
     def get(self, request): 
         template_name = 'GC2.html' 
         GC2 = GeneralChemistry2.objects.all().order_by('-time')
-        return render(request, template_name, {'GC2':GC2})
+        contentsGC = GeneralChemistry2.objects.all()
+        countGC = 0
+        sumGC = 0
+        avgGC = "등록해줘~"
+        for content in contentsGC:    
+            sumGC += content.score
+            countGC +=1
+            avgGC = round(sumGC/countGC, 2)
+        return render(request, template_name, {'GC2':GC2,'avgGC':avgGC})
 
 class LERead(ListView):
     model = LawAndEconomics
     def get(self, request):
         template_name = 'LE.html'
         LE = LawAndEconomics.objects.all().order_by('-time')
-        return render(request, template_name, {'LE':LE})
+        contentsLE = LawAndEconomics.objects.all()
+        countLE = 0
+        sumLE = 0
+        avgLE = "등록해줘~"
+    
+        for content in contentsLE:    
+            sumLE += content.score
+            countLE +=1
+            avgLE = round(sumLE/countLE, 2)
+        return render(request, template_name, {'LE':LE,'avgLE':avgLE})
 
 class PERead(ListView):
     model = PhysicsExperiment
@@ -82,7 +100,16 @@ class PERead(ListView):
     def get(self, request):
         template_name = 'PE.html'
         PE = PhysicsExperiment.objects.all().order_by('-time')
-        return render(request, template_name, {'PE':PE})    
+        contentsPE = PhysicsExperiment.objects.all()
+        countPE = 0
+        sumPE = 0
+        avgPE = "등록해줘~"
+
+        for content in contentsPE:    
+            sumPE += content.score
+            countPE +=1
+            avgPE = round(sumPE/countPE, 2)
+        return render(request, template_name, {'PE':PE,'avgPE':avgPE})    
 
 class WPRead(ListView):
     model = WebProgramming
@@ -90,7 +117,16 @@ class WPRead(ListView):
     def get(self, request):
         template_name = 'WP.html'
         WP = WebProgramming.objects.all().order_by('-time')
-        return render(request, template_name, {'WP':WP})
+        contentsWP = WebProgramming.objects.all()
+        countWP = 0
+        sumWP = 0
+        avgWP = "등록해줘~"
+
+        for content in contentsWP:    
+            sumWP += content.score
+            countWP +=1
+            avgWP = round(sumWP/countWP, 2)
+        return render(request, template_name, {'WP':WP,'avgWP':avgWP})
  
 #CREATEVIEW
 
