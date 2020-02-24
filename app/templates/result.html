@@ -12,10 +12,14 @@
 {% block content %}
 <div class="title-section">
 <div class="title">
-{% if countall == 0 %}
+{% if countall == 0 or query == " " %}
 <h1>검색결과가 없습니다.</h1>
 {% else %}
+<<<<<<< HEAD
 <h1>{{query}}에 대한 {{countall}}개의 결과가 있습니다.</h1>
+=======
+<h1>"{{query}}"에 대한{{countall}}개의 결과가 있습니다.</h1>
+>>>>>>> taewon
 {% endif %}
 </div>
 
