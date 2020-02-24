@@ -1,1 +1,1 @@
-web: gunicorn LLTeacher.wsgi --log-file-
+web: gunicorn LectureEval.wsgi --log-file-
