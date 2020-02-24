@@ -9,7 +9,6 @@ from .models import GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebPr
 
 modelList = [GeneralChemistry2, LawAndEconomics, PhysicsExperiment, WebProgramming]
 
-
 def index(request):
     contentsGC = GeneralChemistry2.objects.all()
     countGC = 0
@@ -213,3 +212,20 @@ def mypage(request):
     WP = WebProgramming.objects.all().order_by('-time')
     LE = LawAndEconomics.objects.all().order_by('-time')
     return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE})
+
+#검색창 코드
+def result(request):
+    GC2posts = GeneralChemistry2.objects.all()
+    PEposts = PhysicsExperiment.objects.all()
+    WPposts = WebProgramming.objects.all()
+    LEposts = LawAndEconomics.objects.all()
+
+    query = request.GET.get('query','')
+
+    if request.method == 'GET':
+        if query:
+            GC2posts = GC2posts.filter(lectureName=query, professorName=query)
+            PEposts  = PEposts.filter(lectureName=query, professorName=query)
+            WPposts  = WPposts.filter(lectureName=query, professorName=query)
+            LEposts  = LEposts.filter(lectureName=query, professorName=query)
+    return render(request, 'result.html',{'GC2posts':GC2posts, 'PEposts':PEposts, 'WPposts':WPposts, 'LEposts':LEposts})

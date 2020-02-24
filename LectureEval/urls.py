@@ -12,6 +12,7 @@ urlpatterns = [
     path('loginhome/',app.views.loginhome, name='loginhome'),
     path('signuphome/', app.views.signuphome, name="signuphome"),
     path('mypage',app.views.mypage, name='mypage'),
+    path('result/',app.views.result, name="result"),
 
     path('GC2/', GC2Read.as_view(), name='GC2'),
     path('GC2/create', GC2Create.as_view(), name="GC2_CREATE"),
