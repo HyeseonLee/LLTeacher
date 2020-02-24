@@ -21,13 +21,54 @@ body{
     background: pink;
     padding: 40px 60px;
 }
-
+.Mypage_Top{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.main-item{
+    display: inline-block;
+}
+div .Mypage_Contents{
+    width: 100%;
+    border:  1px solid black;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+}
 .top_box{
     display: flex;
     flex-direction: row;
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
+}
+.listView_Top{
+    padding: 1rem 0rem;
+}
+.listView_Middle{
+    padding-bottom: 1rem;
+}
+.listView_UD_Box{
+    margin: 1rem 0rem;
+}
+a.mypageBtn{
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size:1rem;
+    border-radius: 20px;
+    transition:all 0.1s;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+}
+p.btn_text{
+    color: white;
+}
+.listView_UD_Contents{
+    width: 100%;
 }
 .page_name{
     font-family: NanumSquareB;
@@ -111,74 +152,6 @@ ul{
     font-family: NanumBarunpenB;
     font-size: 19px;
 }
-
-
-/* div .listView_Box{
-    width: 100%;
-}
-div .listView{
-    border: 1px solid rgb(37, 37, 37);
-    border-radius: 7px;
-    padding: 2rem;
-    width: 70%;
-    display: inline-block;
-    margin: 5px;
-}
-div .listView .listView_Top{
-    font-size: 1.4rem;
-}
-div .listView .listView_Middle{
-    font-size: 1.2rem;
-    margin: 15px 0px;
-}
-div .listView .listView_Bottom{
-    font-size: 1rem;
-}
-u{
-    text-decoration: none;
-    padding-bottom: 1px;
-    border-bottom: 1px solid black;
-}
-
-
-
-
-
-.div_Create.goToMain{
-    background-color: #dc143c;
-}
-.btn{ 
-    text-decoration: none;
-    font-size:1rem;
-    padding:10px 20px 10px 20px;
-    margin: 0 20px 20px 20px;
-    display:inline-block;
-    border-radius: 7px;
-    transition:all 0.1s;
-    font-family: 'Noto Serif KR', sans-serif;
-}
-
-.btn:active{
-transform: translateY(3px);
-}
-.btn.update{
-background-color: #0175ff;
-border-bottom:5px solid #0175ff;
-color:white;
-}
-.btn.update:active{
-border-bottom:2px solid #0175ff;
-}
-.btn.delete{
-background-color: #dc143c;
-border-bottom:5px solid #dc143c;
-color:white;
-}
-.btn.delete:active{
-border-bottom:2px solid #dc143c;
-}
-
-*/
 
 .btn_box{
     margin-top: 10px;

@@ -209,21 +209,25 @@ class WPUpdate(UpdateView):
 class GC2Delete(DeleteView):
     model = GeneralChemistry2
     template_name = 'gc2_delete_form.html'
+    context_object_name = 'Object'
     success_url = reverse_lazy('GC2')
 
 class LEDelete(DeleteView):
     model = LawAndEconomics
     template_name = 'le_delete_form.html'
+    context_object_name = 'Object'
     success_url = reverse_lazy('LE')
 
 class PEDelete(DeleteView):
     model = PhysicsExperiment
     template_name = 'pe_delete_form.html'
+    context_object_name = 'Object'
     success_url = reverse_lazy('PE')
 
 class WPDelete(DeleteView):
     model = WebProgramming
     template_name = 'wp_delete_form.html'
+    context_object_name = 'Object'
     success_url = reverse_lazy('WP')
    
 # 로그인 관련코드.
@@ -290,7 +294,7 @@ def mypage(request):
         countLE += 1
     countall = countGC+countPE+countWP+countLE
 
-    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE,'countall':countall})
+    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE,'countall':countall, 'countGC':countGC, 'countPE':countPE, 'countWP':countWP, 'countLE':countLE})
 
 #검색창 코드
 def result(request):
