@@ -24,7 +24,7 @@ class GeneralChemistry2(models.Model):
     time = models.DateTimeField(default=timezone.now)
     # 정렬기준이 필요한거 같아서 자료입력시간만 추가했어요
     def __str__(self):
-        return str(self.time)
+        return str(self.time), self.author
     def save(self, *args, **kwargs):
         super(GeneralChemistry2, self).save(*args, **kwargs)
     

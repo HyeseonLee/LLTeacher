@@ -13,13 +13,10 @@
 {% if user.is_authenticated %}
 <div class="section">
     <div class="top_box">
-        <p class="page_name"> 일반화학2</p>
-
-        <a href="{% url 'GC2_CREATE' %}">
-            <div class="create_box">새 강의평 쓰기</div>
-        </a>
+        <div class="top_box_left"><p class="page_name">일반화학2</p></div>
+        <div class="top_box_right"><a href="{% url 'GC2_CREATE' %}">
+            <div class="create_box">새 강의평 쓰기</div></a></div>  
     </div>
-
     <div class="info_box">
         <ul>
             <li class="info_li">교수명</li>

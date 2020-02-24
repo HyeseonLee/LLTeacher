@@ -8,12 +8,13 @@
 
 <form method = "POST" action="{% url 'login' %}">
   {% csrf_token %}
-    <h1 class="formTitle"> 로그인 페이지 입니다.</h1>
+    <h1 class="formTitle"> 로그인하기 </h1>
   <div class="InputForm">
     <div class="UserLoginBox">
       <h2>ID_이름</h2>
       <input class="UserInput" name="username" type="text" required>
       <hr style="border: 1px dashed black;" width="40%">
+      
       <h2>PW_비밀번호</h2>
       <input class="UserInput" name="password" type="password" required>
       <hr style="border: 1px dashed black;" width="40%">

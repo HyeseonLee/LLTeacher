@@ -1,11 +1,12 @@
 {% extends "abase_form.html" %}
 {% load static %}
 {% block form %}
-<form method="POST">
-    {% csrf_token %}
-    <h1>본인이 작성하신 {% block name %}{% endblock name %} 강의평가를 <br>수정할 수 있습니다.💁‍♀️</h1>
-    {{form.as_p}}
-    <input type="submit" value="등록하기">
-</form>
-<h3>메인으로 돌아가고 싶으시면<br><a href = "{% url 'main' %}">❌</a>을 클릭해주세요</h3>
+<h1>{% block name %}{% endblock name %} 강의평가를 <br>수정할 수 있습니다.💁‍♀️</h1>
+<Div class="UPDATE_View_Form">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="BaseFormBtn" type="submit" value="수정하기">
+    </form>
+</Div>
 {% endblock form %}

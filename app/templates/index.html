@@ -40,7 +40,7 @@
 
     <div class="main-item 2">
         <a class="articles" href="{% url 'LE' %}"id = "articles">
-            <p class="title">법과 경제학 : {{professorNameLE}}</p>
+            <p class="title">법과경제학 : {{professorNameLE}}</p>
             <p class="score">평균평점 {{avgLE}}</p>
             <p class="seme">{{latestLE.seme}} 수강자</p>
             <p class="text">"{{latestLE.text}}"</p>
@@ -82,7 +82,7 @@
     
         <div class="main-item 2">
             <a class="articles" onclick="loginWarning();" href="#">
-                <p class="title">법과 경제학 : {{professorNameLE}}</p>
+                <p class="title">법과경제학 : {{professorNameLE}}</p>
                 <p class="score">평균평점 {{avgLE}}</p>
                 <p class="seme">{{latestLE.seme}} 수강자</p>
                 <p class="text">"{{latestLE.text|truncatechars_html:20}}"</p>
