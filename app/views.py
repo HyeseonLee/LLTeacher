@@ -299,6 +299,12 @@ def result(request):
     WPposts = WebProgramming.objects.all()
     LEposts = LawAndEconomics.objects.all()
 
+    countGC=0
+    countPE=0
+    countWP=0
+    countLE=0
+    countall=0
+
     query = request.GET.get('query','')
 
     if query:
@@ -306,4 +312,14 @@ def result(request):
         PEposts  = PEposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
         WPposts  = WPposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
         LEposts  = LEposts.filter(Q(lectureName__icontains=query)| Q(professorName__icontains=query)).order_by('-time')
-    return render(request, 'result.html',{'GC2posts':GC2posts, 'PEposts':PEposts, 'WPposts':WPposts, 'LEposts':LEposts,'query':query})
+
+        for content in GC2posts:
+            countGC += 1
+        for content in PEposts:
+            countPE += 1
+        for content in WPposts:
+            countWP += 1
+        for content in LEposts:
+            countLE += 1
+        countall = countGC+countPE+countWP+countLE
+    return render(request, 'result.html',{'GC2posts':GC2posts, 'PEposts':PEposts, 'WPposts':WPposts, 'LEposts':LEposts,'query':query,'countall':countall})

@@ -13,6 +13,10 @@
 <div class="title">
 <h1>"{{query}}"검색 결과</h1>
 </div>
+{% if countall == 0 %}
+<h1>검색결과가 없습니다.</h1>
+{% endif %}
+
 {% for post in GC2posts%}
 <div class="section">
     <div class="main-item">
