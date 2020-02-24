@@ -30,6 +30,9 @@ body{
 .main-item{
     display: inline-block;
 }
+.main-item2{
+    margin-bottom: 10px;
+}
 div .Mypage_Contents{
     width: 100%;
     border:  1px solid black;
