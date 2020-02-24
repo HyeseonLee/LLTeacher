@@ -6,35 +6,140 @@
 {% endblock title%}
 
 {% block css %}
- <link rel="stylesheet" href="{% static 'css/result.css' %}">
+<link rel="stylesheet" href="{% static 'css/result.css' %}">
 {% endblock css %}
 
 {% block content %}
-<div class="title-section">
-<div class="title">
+<div class="section">
+    <div class="top_box">
+        <div class="top_box_left">
 {% if countall == 0 or query == " " %}
-<h1>검색결과가 없습니다.</h1>
-{% else %}
-<h1>"{{query}}"에 대한{{countall}}개의 결과가 있습니다.</h1>
-{% endif %}
+            <p class="page_name">검색결과가 없습니다.</p>
+            {% else %}
+            <p class="page_name">{{countall}}개의 결과가 있습니다.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- GC2 -->
+    <div class="big_list_box">
+        {% for post in GC2posts%}
+        {% if countall == 0 %}
+        {% else %}
+        <div class="list_box">
+            <div class="main-item">
+                <p class="lecture">{{post.lectureName}} : {{post.professorName}}</p>
+                <p class="score">
+                    {% if post.score == 1 %} ★☆☆☆☆
+                    {% elif post.score == 2 %} ★★☆☆☆
+                    {% elif post.score == 3 %} ★★★☆☆
+                    {% elif post.score == 4 %} ★★★★☆
+                    {% elif post.score == 5 %} ★★★★★
+                    {% endif %}
+                </p>
+                <p class="seme">{{post.seme}} 수강자</p>
+                <p class="text">{{post.text}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- PE -->
+    <div class="big_list_box">
+        {% for post in PEposts%}
+        {% if countall == 0 %}
+        {% else %}
+        <div class="list_box">
+            <div class="main-item">
+                <p class="lecture">{{post.lectureName}} : {{post.professorName}}</p>
+                <p class="score">
+                    {% if post.score == 1 %} ★☆☆☆☆
+                    {% elif post.score == 2 %} ★★☆☆☆
+                    {% elif post.score == 3 %} ★★★☆☆
+                    {% elif post.score == 4 %} ★★★★☆
+                    {% elif post.score == 5 %} ★★★★★
+                    {% endif %}
+                </p>
+                <p class="seme">{{post.seme}} 수강자</p>
+                <p class="text">{{post.text}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- LE -->
+    <div class="big_list_box">
+        {% for post in LEposts%}
+        {% if countall == 0 %}
+        {% else %}
+        <div class="list_box">
+            <div class="main-item">
+                <p class="lecture">{{post.lectureName}} : {{post.professorName}}</p>
+                <p class="score">
+                    {% if post.score == 1 %} ★☆☆☆☆
+                    {% elif post.score == 2 %} ★★☆☆☆
+                    {% elif post.score == 3 %} ★★★☆☆
+                    {% elif post.score == 4 %} ★★★★☆
+                    {% elif post.score == 5 %} ★★★★★
+                    {% endif %}
+                </p>
+                <p class="seme">{{post.seme}} 수강자</p>
+                <p class="text">{{post.text}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+<!-- WP -->
+<div class="big_list_box">
+    {% for post in WPposts%}
+    {% if countall == 0 %}
+    {% else %}
+    <div class="list_box">
+        <div class="main-item">
+            <p class="lecture">{{post.lectureName}} : {{post.professorName}}</p>
+            <p class="score">
+                {% if post.score == 1 %} ★☆☆☆☆
+                {% elif post.score == 2 %} ★★☆☆☆
+                {% elif post.score == 3 %} ★★★☆☆
+                {% elif post.score == 4 %} ★★★★☆
+                {% elif post.score == 5 %} ★★★★★
+                {% endif %}
+            </p>
+            <p class="seme">{{post.seme}} 수강자</p>
+            <p class="text">{{post.text}}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
 </div>
+
 
 </div>
 
-{% for post in GC2posts%}
-{% if countall == 0 %}
-{% else %}
+<!-- 
+
+<br>
+
+
+
 <div class="section">
     <div class="main-item">
-        <div class="listView_Box">  
+        {% for post in LEposts%}
+        {% if countall == 0 %}
+        {% else %}
+        <div class="listView_Box">
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
                 <div class="listView_Top">
-                    <h3><u>{{post.professorName}}</u> 교수님  //  <u>{{post.seme}}</u> 수강자 입니다.  
+                    <h3><u>{{post.professorName}}</u> 교수님 // <u>{{post.seme}}</u> 수강자 입니다.
                     </h3>
                 </div>
                 <div class="listView_Middle">
-                    <h3>추천 별점  :
+                    <h3>추천 별점 :
                         {% if post.score == 1 %} ★☆☆☆☆
                         {% elif post.score == 2 %} ★★☆☆☆
                         {% elif post.score == 3 %} ★★★☆☆
@@ -47,90 +152,27 @@
                 </div>
             </div><Br><Br>
         </div>
-    </div>
-</div>
-<br>
-{% endif %}
-{% endfor %}
+        {% endif %}
+        {% endfor %}
 
-{% for post in PEposts%}
-{% if countall == 0 %}
-{% else %}
-<div class="section">
-    <div class="main-item">
-        <div class="listView_Box">  
-            <div class="listView">
-                <h2>{{post.lectureName}}</h2>
-                <div class="listView_Top">
-                    <h3><u>{{post.professorName}}</u> 교수님  //  <u>{{post.seme}}</u> 수강자 입니다.  
-                    </h3>
-                </div>
-                <div class="listView_Middle">
-                    <h3>추천 별점  :
-                        {% if post.score == 1 %} ★☆☆☆☆
-                        {% elif post.score == 2 %} ★★☆☆☆
-                        {% elif post.score == 3 %} ★★★☆☆
-                        {% elif post.score == 4 %} ★★★★☆
-                        {% elif post.score == 5 %} ★★★★★
-                        {% endif %}</h3>
-                </div>
-                <div class="listView_Bottom">
-                    <h3>강의 후기 : {{post.text}} </h3>
-                </div>
-            </div><Br><Br>
-        </div>
     </div>
 </div>
 <br>
-{% endif %}
-{% endfor %}
-
-{% for post in LEposts%}
-{% if countall == 0 %}
-{% else %}
-<div class="section">
-    <div class="main-item">
-        <div class="listView_Box">  
-            <div class="listView">
-                <h2>{{post.lectureName}}</h2>
-                <div class="listView_Top">
-                    <h3><u>{{post.professorName}}</u> 교수님  //  <u>{{post.seme}}</u> 수강자 입니다.  
-                    </h3>
-                </div>
-                <div class="listView_Middle">
-                    <h3>추천 별점  :
-                        {% if post.score == 1 %} ★☆☆☆☆
-                        {% elif post.score == 2 %} ★★☆☆☆
-                        {% elif post.score == 3 %} ★★★☆☆
-                        {% elif post.score == 4 %} ★★★★☆
-                        {% elif post.score == 5 %} ★★★★★
-                        {% endif %}</h3>
-                </div>
-                <div class="listView_Bottom">
-                    <h3>강의 후기 : {{post.text}} </h3>
-                </div>
-            </div><Br><Br>
-        </div>
-    </div>
-</div>
-<br>
-{% endif %}
-{% endfor %}
 
 {% for post in WPposts%}
 {% if countall == 0 %}
 {% else %}
 <div class="section">
     <div class="main-item">
-        <div class="listView_Box">  
+        <div class="listView_Box">
             <div class="listView">
                 <h2>{{post.lectureName}}</h2>
                 <div class="listView_Top">
-                    <h3><u>{{post.professorName}}</u> 교수님  //  <u>{{post.seme}}</u> 수강자 입니다.  
+                    <h3><u>{{post.professorName}}</u> 교수님 // <u>{{post.seme}}</u> 수강자 입니다.
                     </h3>
                 </div>
                 <div class="listView_Middle">
-                    <h3>추천 별점  :
+                    <h3>추천 별점 :
                         {% if post.score == 1 %} ★☆☆☆☆
                         {% elif post.score == 2 %} ★★☆☆☆
                         {% elif post.score == 3 %} ★★★☆☆
@@ -147,6 +189,6 @@
 </div>
 <br>
 {% endif %}
-{% endfor %}
+{% endfor %} -->
 
 {% endblock%}
