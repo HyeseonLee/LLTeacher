@@ -269,11 +269,28 @@ def signuphome(request):
     return render(request, 'user_signup.html')
 
 def mypage(request):
-    GC2 = GeneralChemistry2.objects.all().order_by('-time')
-    PE = PhysicsExperiment.objects.all().order_by('-time')
-    WP = WebProgramming.objects.all().order_by('-time')
-    LE = LawAndEconomics.objects.all().order_by('-time')
-    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE})
+    GC2 = GeneralChemistry2.objects.filter(author=request.user).order_by('-time')
+    PE = PhysicsExperiment.objects.filter(author=request.user).order_by('-time')
+    WP = WebProgramming.objects.filter(author=request.user).order_by('-time')
+    LE = LawAndEconomics.objects.filter(author=request.user).order_by('-time')
+
+    countGC=0
+    countPE=0
+    countWP=0
+    countLE=0
+    countall=0
+
+    for content in GC2:
+        countGC += 1
+    for content in PE:
+        countPE += 1
+    for content in WP:
+        countWP += 1
+    for content in LE:
+        countLE += 1
+    countall = countGC+countPE+countWP+countLE
+
+    return render(request, 'mypage.html', {'GC2':GC2, 'PE':PE, 'WP':WP, 'LE':LE,'countall':countall})
 
 #검색창 코드
 def result(request):

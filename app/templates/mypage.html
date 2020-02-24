@@ -24,8 +24,11 @@
         <div class="main-item">
             <h1>내가 쓴 강의평</h1>
             <br>
+            {% if countall == 0 %}
+            <h2>아직 작성하신 강의평가가 없어요!</h2>
+            {% endif %}
+            
             {% for comment in GC2 %}
-                {% if comment.author == user %}
                     <div class="listView_Top">
                         {{comment.seme}}
                         {{comment.professorName}} 교수님
@@ -46,11 +49,10 @@
                     <a class="btn update" href = "{% url 'GC2_UPDATE' comment.id %}">수정하기</a>
                     <a class="btn delete" href = "{% url 'GC2_DELETE' comment.id %}">삭제하기</a>
                 </div>
-                {% endif %}<br>
+                <br>
             {% endfor %}
 
             {% for comment in PE %}
-                {% if comment.author == user %}
                     <div class="listView_Top">
                         {{comment.seme}}
                         {{comment.professorName}} 교수님
@@ -71,11 +73,10 @@
                         <a class="btn update" href = "{% url 'PE_UPDATE' comment.id %}">수정하기</a>
                         <a class="btn delete" href = "{% url 'PE_DELETE' comment.id %}">삭제하기</a>
                     </div>
-                {% endif %} <br>
+                    <br>
             {% endfor %}
         
             {% for comment in LE %}
-                {% if comment.author == user %}
                     <div class="listView_Top">
                         {{comment.seme}}
                         {{comment.professorName}} 교수님
@@ -96,11 +97,10 @@
                         <a class="btn update" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
                         <a class="btn delete" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
                     </div>
-                {% endif %}<br>
+                    <br>
             {% endfor %}
 
             {% for comment in WP %}
-                {% if comment.author == user %}
                     <div class="listView_Top">
                         {{comment.seme}}
                         {{comment.professorName}} 교수님
@@ -121,13 +121,9 @@
                         <a class="btn update" href = "{% url 'WP_UPDATE' comment.id %}">수정하기</a>
                         <a class="btn delete" href = "{% url 'WP_DELETE' comment.id %}">삭제하기</a>
                     </div>
-                    {% endif %}
-        </div>
-        <br>
-        <a class="btn blue" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
-        <a class="btn red" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
-    <br>
-    {% endfor %}
+                    </div>
+                <br>
+            {% endfor %}
     </div>
 
 </body>
