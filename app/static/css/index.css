@@ -1,0 +1,47 @@
+body{
+    height: 100%;
+    width: 100%;
+    /* text-align: center; */
+
+}
+
+.section {
+    margin: 0 300px;
+    border-radius: 20px;
+    background: pink;
+}
+
+/* 강의평 과목 박스 디자인*/
+.main-item{
+    background-color: rgb(255, 241, 218);
+    border-bottom: solid 1px black;
+    margin: 20px 30px;
+    padding: 30px 40px;
+    border-radius: 10px;
+}
+
+a { color: #000; }
+a:link { color: black; }
+a:visited { color: black; }
+
+.title{
+    margin-bottom: 10px;
+    font-family: NanumSquareEB;
+    font-size: 25px;
+}
+.score{
+    margin-bottom: 10px;
+    font-family: NanumBarunpenB;
+    font-size: 18px;
+}
+.seme{
+    margin-bottom: 4px;
+    font-family: NanumBarunpenB;
+    font-size: 14px;
+    color: gray;
+}
+.text {
+    font-family: NanumBarunpenB;
+    font-size: 18px;
+}
+

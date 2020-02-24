@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:500&display=swap" rel="stylesheet">
+
+    {% block css %}{% endblock css %}
+
+</head>
+<body>
+    <div class="container">
+        <div class="outer">
+            <!--상단부-->
+            <div class="top_nav">
+                <!-- <p>상단 네비게이션</p> -->
+                <!-- 왼쪽 -->
+                <div id="box-left">
+                    <a href="{% url 'main' %}">
+                        <h1 class="name"> ERCIA 강의평가</h1>
+                    </a>
+                </div>
+                <!-- 중앙 -->
+                {% if user.is_authenticated %}
+                <div id='box-center'>
+                    <form action = "{% url 'result' %}" method='GET'>
+                        <input class="input_button" type="image" src="{% static 'image/find.png'%}" alt="Submit">
+                        <input class="input_box" type="text" name="query" placeholder="과목명, 교수명으로 검색">
+                    </form>
+                </div>
+                {% else %}
+                <div id='box-center'>
+                    <form >
+                        <input class="input_button" type="image" src="{% static 'image/find.png'%}" alt="Submit">
+                        <input class="input_box" onclick="loginWarning();" placeholder="과목명, 교수명으로 검색">
+                    </form>
+                </div>
+                {% endif %}
+                <!-- 오른쪽 -->
+                <div id='box-right'>
+                    <ul>
+                        {% if user.is_authenticated %}
+                        <ul>
+                            <li class="li"><a href="javascript:{document.getElementById('logout').submit()}"
+                                     class="li_Logout">로그아웃</a>
+                                <form id="logout" method="POST" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" />
+
+                                </form>
+                            </li>
+                            <li class="li">
+                                {% csrf_token %}
+                                <p class="intro">{{user.username}}님<br>안녕하세요!</p>
+                            </li> 
+                            <li class="li"><a href="{% url 'mypage' %}"><img class="profile_img"
+                                        src="{%static 'image/profile.png' %}"></a></li>
+                            
+                        </ul>
+
+                        <ul><br>
+                            {% else %}
+                            <li class="li"><a href="{% url 'signuphome' %}" class="li_Signup">회원가입</a></li>
+                            <li class="li"><a href="{% url 'loginhome' %}" class="li_Login" >로그인</a></li>
+                            <li class="li"><a href="" onclick="loginWarning();"><img class="profile_img"
+                                        src="{%static 'image/profile.png'%}" width="40" height="40"></a></li>
+                            {% endif %}
+                        </ul>
+                </div>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,10 @@
+{% extends "abase_form.html" %}
+{% load static %}
+{% block form %}
+<form method="POST">
+    {% csrf_token %}
+    <h1>본인이 등록하신 {% block name %}{% endblock name %} 강의평을 정말 삭제할까요? 💁‍♂️</h1><br>
+    <input type="submit" value="삭제하기">
+</form>
+<h3>메인으로 돌아가고 싶으시면<br><a href = "{% url 'main' %}">❌</a>을 클릭해주세요</h3>
+{% endblock form %}

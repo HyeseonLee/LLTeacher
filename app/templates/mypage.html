@@ -1,0 +1,135 @@
+{% extends "base_list.html" %}
+{% load static %}
+
+{% block title %}
+    내가 쓴 강의평
+{% endblock title%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내가 쓴 강의평</title>
+</head>
+<body>
+    <div class="section">
+        <div class="main-item">
+            <h1>내가 쓴 강의평</h1>
+            <br>
+            {% for comment in GC2 %}
+                {% if comment.author == user %}
+                    <div class="listView_Top">
+                        {{comment.seme}}
+                        {{comment.professorName}} 교수님
+                    </div>
+                <div class="listView_Middle">
+                <h3>추천 별점  :
+                    {% if comment.score == 1 %} ★☆☆☆☆
+                    {% elif comment.score == 2 %} ★★☆☆☆
+                    {% elif comment.score == 3 %} ★★★☆☆
+                    {% elif comment.score == 4 %} ★★★★☆
+                    {% elif comment.score == 5 %} ★★★★★
+                    {% endif %}</h3>
+                </div>
+                <div class="listView_Bottom">   
+                        {{comment.text}}
+                </div>
+                <div class="listView_UD_Box">
+                    <a class="btn update" href = "{% url 'GC2_UPDATE' comment.id %}">수정하기</a>
+                    <a class="btn delete" href = "{% url 'GC2_DELETE' comment.id %}">삭제하기</a>
+                </div>
+                {% endif %}<br>
+            {% endfor %}
+
+            {% for comment in PE %}
+                {% if comment.author == user %}
+                    <div class="listView_Top">
+                        {{comment.seme}}
+                        {{comment.professorName}} 교수님
+                    </div>
+                    <div class="listView_Middle">
+                    <h3>추천 별점  :
+                        {% if comment.score == 1 %} ★☆☆☆☆
+                        {% elif comment.score == 2 %} ★★☆☆☆
+                        {% elif comment.score == 3 %} ★★★☆☆
+                        {% elif comment.score == 4 %} ★★★★☆
+                        {% elif comment.score == 5 %} ★★★★★
+                        {% endif %}</h3>
+                    </div>
+                    <div class="listView_Bottom">   
+                        {{comment.text}}
+                    </div>
+                    <div class="listView_UD_Box">
+                        <a class="btn update" href = "{% url 'PE_UPDATE' comment.id %}">수정하기</a>
+                        <a class="btn delete" href = "{% url 'PE_DELETE' comment.id %}">삭제하기</a>
+                    </div>
+                {% endif %} <br>
+            {% endfor %}
+        
+            {% for comment in LE %}
+                {% if comment.author == user %}
+                    <div class="listView_Top">
+                        {{comment.seme}}
+                        {{comment.professorName}} 교수님
+                    </div>
+                    <div class="listView_Middle">
+                        <h3>추천 별점  :
+                            {% if comment.score == 1 %} ★☆☆☆☆
+                            {% elif comment.score == 2 %} ★★☆☆☆
+                            {% elif comment.score == 3 %} ★★★☆☆
+                            {% elif comment.score == 4 %} ★★★★☆
+                            {% elif comment.score == 5 %} ★★★★★
+                            {% endif %}</h3>
+                    </div>
+                    <div class="listView_Bottom">   
+                            {{comment.text}}
+                    </div>
+                    <div class="listView_UD_Box">
+                        <a class="btn update" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
+                        <a class="btn delete" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
+                    </div>
+                {% endif %}<br>
+            {% endfor %}
+
+            {% for comment in WP %}
+                {% if comment.author == user %}
+                    <div class="listView_Top">
+                        {{comment.seme}}
+                        {{comment.professorName}} 교수님
+                    </div>
+                    <div class="listView_Middle">
+                        <h3>추천 별점  :
+                            {% if comment.score == 1 %} ★☆☆☆☆
+                            {% elif comment.score == 2 %} ★★☆☆☆
+                            {% elif comment.score == 3 %} ★★★☆☆
+                            {% elif comment.score == 4 %} ★★★★☆
+                            {% elif comment.score == 5 %} ★★★★★
+                            {% endif %}</h3>
+                    </div>
+                    <div class="listView_Bottom">   
+                        {{comment.text}}
+                    </div>
+                    <div class="listView_UD_Box">
+                        <a class="btn update" href = "{% url 'WP_UPDATE' comment.id %}">수정하기</a>
+                        <a class="btn delete" href = "{% url 'WP_DELETE' comment.id %}">삭제하기</a>
+                    </div>
+                    {% endif %}
+        </div>
+        <br>
+        <a class="btn blue" href = "{% url 'LE_UPDATE' comment.id %}">수정하기</a>
+        <a class="btn red" href = "{% url 'LE_DELETE' comment.id %}">삭제하기</a>
+    <br>
+    {% endfor %}
+    </div>
+
+</body>
+</html>
+{% endblock %}
