@@ -18,7 +18,7 @@ body{
     flex-direction: column;
     margin: 0 300px;
     border-radius: 20px;
-    background: pink;
+    background: white;
     padding: 40px 60px;
 }
 .Mypage_Top{
@@ -37,6 +37,9 @@ div .Mypage_Contents{
     display: inline-block;
     text-align: center;
     margin-bottom: 20px;
+}
+.main-item2{
+    border: none;
 }
 .top_box{
     display: flex;
